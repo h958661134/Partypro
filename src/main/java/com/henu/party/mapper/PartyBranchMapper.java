@@ -23,100 +23,100 @@ public interface PartyBranchMapper {
 	/*
 	 * 根据userName查询某一党支部所有信息
 	 */
-	public PartyBranch selectManagerByUsername(String username) throws Exception;
+	public PartyBranch selectManagerByUsername(String username);
 
 	/*
 	 * 查询所有党支部信息并返回集合
 	 */
-	public List<PartyBranch> selectAllPartyBranch() throws Exception;
+	public List<PartyBranch> selectAllPartyBranch();
 
 	/*
 	 * 模糊查询某党支部信息并返回集合
 	 */
-	public List<PartyBranch> selectFuzzy(String name) throws Exception;
+	public List<PartyBranch> selectFuzzy(String name);
 
 	/*
 	 * 修改党支部管理员密码
 	 */
-	public void updateUserPwd(PartyBranch partyBranch) throws Exception;
+	public int updateUserPwd(PartyBranch partyBranch);
 
 	/*
 	 * 根据partyName查询指定党支部信息
 	 */
-	public PartyBranch selectManagerByPartyName(String partyName) throws Exception;
+	public PartyBranch selectManagerByPartyName(String userName);
 
 	/*
 	 * 批量删除党支部信息
 	 */
-	public void batchDeletePartyBranch(@Param("pids")String[] p) throws Exception;
+	public int batchDeletePartyBranch(@Param("pids")String[] p);
 	
 	/*
 	 * 新增党支部信息
 	 */
-	public void insertOnePartyBranch(PartyBranch partyBranch) throws Exception;
+	public int insertOnePartyBranch(PartyBranch partyBranch);
 	
 	/*
 	 * 根据partyId查询党组织班子成员信息
 	 */
-	public List<PartyBranchMember> selectParBranMemberByPartyId(String partyId) throws Exception;
+	public List<PartyBranchMember> selectParBranMemberByPartyId(String partyId);
 	
 	/*
 	 * 根据partyId查询党组织奖惩信息
 	 */
-	public List<RewardPunishParty> selectRePuPartyByPartyId(String partyId) throws Exception;
+	public List<RewardPunishParty> selectRePuPartyByPartyId(String partyId);
 	
 	/*
 	 * 根据partyId查询党组织关联单位
 	 */
-	public List<PartyCompany> selectParCompanyByPartyId(String partyId) throws Exception;
+	public List<PartyCompany> selectParCompanyByPartyId(String partyId);
 
 	/*
 	 * 根据num修改党支部基本信息
 	 */
-	public void updatePartyBranchInfo(PartyBranch parBranch) throws Exception;
+	public int updatePartyBranchInfo(PartyBranch parBranch);
 	
 	/*
 	 * 新增党组织班子成员
 	 */
-	public void insertParBranchMem(PartyBranchMember partyBranchMem) throws Exception;
+	public int insertParBranchMem(PartyBranchMember partyBranchMem);
 	
 	/*
 	 * 批量删除或删除指定党组织班子成员
 	 */
-	public void batchDeleteParMem(@Param("pids")String[] p) throws Exception;
+	public int batchDeleteParMem(@Param("pids")String[] p);
 	
 	/*
 	 * 根据num修改党组织班子成员
 	 */
-	public void updateParBranchMem(PartyBranchMember partyBranchMem) throws Exception;
+	public int updateParBranchMem(PartyBranchMember partyBranchMem);
 	
 	/*
 	 * 新增党组织奖惩信息
 	 */
-	public void insertParBranchRwd(RewardPunishParty rewardPuPar) throws Exception;
+	public int insertParBranchRwd(RewardPunishParty rewardPuPar);
 	
 	/*
 	 * 批量删除或删除指定党组织奖惩信息
 	 */
-	public void batchDeleteParRepu(@Param("pids")String[] p) throws Exception;
+	public int batchDeleteParRepu(@Param("pids")String[] p);
 	
 	/*
 	 * 根据num修改党组织奖惩信息
 	 */
-	public void updateParRepu(RewardPunishParty rewardPuPar) throws Exception;
+	public int updateParRepu(RewardPunishParty rewardPuPar);
 	
 	/*
 	 * 新增党组织关联单位
 	 */
-	public void insertParBranchCom(PartyCompany partyCom) throws Exception;
+	public int insertParBranchCom(PartyCompany partyCom);
 	
 	/*
 	 * 批量删除或删除指定党组织关联单位
 	 */
-	public void batchDeleteParCom(@Param("pids")String[] p) throws Exception;
+	public int batchDeleteParCom(@Param("pids")String[] p);
 	
 	/*
 	 * 根据num修改党组织关联单位
 	 */
-	public void updateParCom(PartyCompany partyCom) throws Exception;
+	public int updateParCom(PartyCompany partyCom);
 }
