@@ -43,7 +43,7 @@ public interface PartyBranchMapper {
 	/*
 	 * 根据partyName查询指定党支部信息
 	 */
-	public PartyBranch selectManagerByPartyName(String userName);
+	public PartyBranch selectManagerByPartyName(@Param("userName")String userName);
 
 	/*
 	 * 批量删除党支部信息

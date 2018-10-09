@@ -4,7 +4,12 @@
     <mapper namespace="com.henu.party.mapper.PartyBranchMapper">
    		<!-- 根据userName查询某一党支部所有信息 -->
     	<select id="selectManagerByUsername" parameterType="java.lang.String" resultType="com.henu.party.bean.PartyBranch">
-    		select * from tb_partyBranch where userName=#{userName}
+    		select
+				*
+    		from
+    			tb_partyBranch
+    		where
+    			userName=#{userName}
     	</select>
     
     	<!-- 查询所有党支部 -->

@@ -19,12 +19,11 @@ public class PartyBranchServiceImpl implements PartyBranchService{
 	/*
 	 *根据userName得到某一党支部所有信息
 	 */
-	public PartyBranch ManagerByUsername(@Param("userName")String username) {
+	public PartyBranch ManagerByUsername(String username) {
 			if(username == null || username.trim().isEmpty()){
 				throw new RuntimeException("用户名为空");
 			}
-			
-		return pBMapper.selectManagerByPartyName(username);
+		return pBMapper.selectManagerByUsername(username);
 	}
 	
 	/*
