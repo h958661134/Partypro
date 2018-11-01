@@ -69,5 +69,7 @@ public interface UserInfoMapper {
 	public List<FlowPartyer> selectAllFlowPartyer();
 	public List<PoorPartyer> selectAllPoorPartyer();
 	public List<OutBoard> selectAllOutBoard();
+
+	public void deleteByUserName(String userName);
 	
 }

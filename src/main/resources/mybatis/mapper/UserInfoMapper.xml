@@ -142,5 +142,9 @@
 	<select id="selectAllOutBoard" resultType="com.henu.party.bean.OutBoard">
 		select * from tb_outBoard
 	</select>
-	
+
+	<delete id="deleteByUserName" parameterType="String">
+		DELETE FROM tb_userInfo WHERE userName=#{userName}
+	</delete>
+
 </mapper>
