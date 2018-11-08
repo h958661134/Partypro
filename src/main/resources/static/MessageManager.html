@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/party/layui/css/layui.css">
+    <script src="/party/layui/layui.js"></script>
+</head>
+<style type="text/css">
+    #search {
+        position: relative;
+        left: -15px;
+    }
+
+    .layui-btn-group {
+        margin-left: -4px;
+    }
+
+    .layui-form-label {
+        width: 130px;
+    }
+</style>
+
+<body class="layui-layout-body fm-basic" style="">
+    <form class="layui-form layui-col-md12" action="" style="text-align: center;margin-top: 10px">
+
+        <div class="layui-form-item">
+            <div class="layui-col-md6" style="margin-top: 5px">
+                <div class="" style="margin-top: 5px;float: left;">
+                    <h2 style="margin-bottom: 5px">基本信息</h2>
+                </div>
+                <button class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal">党员</button>
+                <button class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal">预备党员</button>
+                <button class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal">发展对象</button>
+                <button class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal">入党积极分子</button>
+            </div>
+
+
+            <div class="layui-col-md6">
+
+                <div class="layui-input-inline layui-col-md1">
+                    <select name="city" class="sm-input" lay-verify="required">
+                        <option value="">请选择搜索类型</option>
+                        <option value="0">党支部</option>
+                        <option value="1">用户</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline layui-col-md1">
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off"
+                        class="layui-input">
+                </div>
+                <div class="layui-btn-group layui-col-md1">
+                    <button class="layui-btn  layui-btn-normal">搜索</button>
+                </div>
+
+                <div class="layui-btn-group layui-col-md3 buttonGroup">
+                    <button class="layui-btn  layui-btn-normal">增加</button>
+                    <button class="layui-btn  layui-btn-normal">删除</button>
+                </div>
+            </div>
+            <div class="layui-col-md12">
+                <form>
+                    <table id="StudentMessage" class="layui-hide" lay-filter="stuFirst"></table>
+                </form>
+            </div>
+        </div>
+    </form>
+
+    <div class="layui-col-md12" style="text-align: center;margin-top: 10px;display: none" id="HumanMessage">
+        <div class="layui-tab layui-tab-card">
+            <ul class="layui-tab-title">
+                <li class="layui-this">基本信息</li>
+                <li>学历学位</li>
+                <li>工作岗位</li>
+                <li>党政职务</li>
+                <li>技术职务</li>
+                <li>奖惩信息</li>
+                <li>民主评议</li>
+                <li>流动党员</li>
+                <li>困难党员</li>
+                <li>出国出境</li>
+            </ul>
+            <div class="layui-tab-content" style="">
+                <div class="layui-tab-item layui-show">
+                    <form action="" class="layui-form">
+                        <div class="layui-col-md4" style="margin-left:15%">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">用户名</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="party3">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">密码</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="333">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">入党状态</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="1921.7.1.3">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">姓名</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="学生第一党支部">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">性别</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="党支部">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">民族</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="软件学院">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">籍贯</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" class="layui-input" id="Time1">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">出生日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" class="layui-input" id="Time1">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">入党日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="票选">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">列为积极分子日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="100">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">申请入党时间</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="100">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">最高学历</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" class="layui-input" id="Time1">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">岗位类型</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" class="layui-input" id="Time1">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">岗位名称</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" class="layui-input" id="Time1">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">身份证号</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">家庭地址</label>
+                                <div class="layui-input-inline">
+                                    <input type="email" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">邮政编码</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">户口所在地派出所</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">联系电话</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">月缴纳党费金额</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">入党类型</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md4">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">转正日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">转正情况</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">进入党支部日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">进入党支部类型</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">工作所在单位</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">所属党支部</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">入党培养人</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">列为发展对象日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">最近党课培训情况</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">最近培训日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">最近培训结果</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">参加工作日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">加入其他党团</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">加入其他党团日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">教育类别</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">入学日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">毕业日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">学位</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">工作岗位开始日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">一线情况</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">是否工人</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block" style="float:right">
+                                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="layui-tab-item">
+                    <table class="layui-hide" id="party2"></table>
+                    <div class="layui-btn-container">
+                        <a class="layui-btn" lay-event="add1" id="add1">添加</a>
+                        <a class="layui-btn" lay-event="del1" id="del1">删除</a>
+                        <a class="layui-btn" lay-event="reset1" id="reset1">修改</a>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <table class="layui-hide" id="party3"></table>
+                    <div class="layui-btn-container">
+                        <a class="layui-btn" lay-event="add2" id="add2">添加</a>
+                        <a class="layui-btn" lay-event="del2" id="del2">删除</a>
+                        <a class="layui-btn" lay-event="reset2" id="reset2">修改</a>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <table class="layui-hide" id="party4"></table>
+                    <div class="layui-btn-container">
+                        <a class="layui-btn" lay-event="add3" id="add3">添加</a>
+                        <a class="layui-btn" lay-event="del3" id="del3">删除</a>
+                        <a class="layui-btn" lay-event="reset3" id="reset3">修改</a>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <table class="layui-hide" id="party5"></table>
+                    <div class="layui-btn-container">
+                        <a class="layui-btn" lay-event="add4" id="add4">添加</a>
+                        <a class="layui-btn" lay-event="del4" id="del4">删除</a>
+                        <a class="layui-btn" lay-event="reset4" id="reset4">修改</a>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <table class="layui-hide" id="party6"></table>
+                    <div class="layui-btn-container">
+                        <a class="layui-btn" lay-event="add5" id="add5">添加</a>
+                        <a class="layui-btn" lay-event="del5" id="del5">删除</a>
+                        <a class="layui-btn" lay-event="reset5" id="reset5">修改</a>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <table class="layui-hide" id="party7"></table>
+                    <div class="layui-btn-container">
+                        <a class="layui-btn" lay-event="add6" id="add6">添加</a>
+                        <a class="layui-btn" lay-event="del6" id="del6">删除</a>
+                        <a class="layui-btn" lay-event="reset6" id="reset6">修改</a>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <form action="" class="layui-form">
+                        <!-- <div class="layui-form-item">
+                            <label class="layui-form-label">信息类别</label>
+                            <div class="layui-input-inline">
+                                <label>信息详情</label>
+                            </div>
+                        </div> -->
+                        <div class="layui-col-md4" style="margin-left:15%">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">流动类型</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="party3">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">流动原因</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="333">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">活动证号码</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="1921.7.1.3">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">流出(入)地(单位)</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="学生第一党支部">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">流出(入)日期</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="党支部">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md4">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">流出党支部联系人</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="软件学院">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">流出党支部联系方式</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" class="layui-input" id="Time1">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">流入党支部联系人</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" class="layui-input" id="Time1">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">流入党支部联系方式</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="票选">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">与党组织联系情况</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input"
+                                        value="100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block" style="float: right">
+                                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="layui-tab-item">
+                    <form action="" class="layui-form" style="margin-left:30%">
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">生活困难类型</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="party3">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">健康状况</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="333">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">生活困难补助情况</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="1921.7.1.3">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">其他补助</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="学生第一党支部">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block" style="float:right">
+                                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="layui-tab-item">
+                    <form action="" class="layui-form" style="margin-left:30%">
+                        <!-- <div class="layui-form-item">
+                            <label class="layui-form-label">信息类别</label>
+                            <div class="layui-input-inline">
+                                <label>信息详情</label>
+                            </div>
+                        </div> -->
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">前往国家(地区)</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="party3">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">出国(境)日期</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="333">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">出国(境)原因</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="1921.7.1.3">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">与党组织联系情况</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="学生第一党支部">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">回国情况</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="党支部">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">回国日期</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block" style="float:right">
+                                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/html" id="ipts">
+        <a class="layui-btn layui-btn-xs" lay-event="detail">详情</a>
+    </script>
+
+    <div id="msgg" style="display:none">
+        <form class="layui-form" style="margin-top:5px;margin-left:15%">
+            <div class="layui-form-item">
+                <label class="layui-form-label">教育类别</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">学历</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">入学时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">毕业日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">学位</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">学位授予日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">毕业院校</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-input-block" style="float:right;margin-right:3%">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="msgg1" style="display:none">
+        <form class="layui-form" style="margin-top:5px;margin-left:15%">
+            <div class="layui-form-item">
+                <label class="layui-form-label">开始日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">结束日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">工作岗位</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">一线情况</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">主要岗位</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-input-block" style="float:right;margin-right:3%">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="msgg2" style="display:none">
+        <form class="layui-form" style="margin-top:5px;margin-left:15%">
+            <div class="layui-form-item">
+                <label class="layui-form-label">任职党组织</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">任职机构</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">职务名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">批准任职日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">批准免职日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">主要职务</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">班子成员</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-input-block" style="float:right;margin-right:3%">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="msgg3" style="display:none">
+        <form class="layui-form" style="margin-top:5px;margin-left:15%">
+            <div class="layui-form-item">
+                <label class="layui-form-label">专业技术资格</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">获得资格日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">专业技术职务</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">聘任起始日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">聘任终止日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-input-block" style="float:right;margin-right:3%">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="msgg4" style="display:none">
+        <form class="layui-form" style="margin-top:5px;margin-left:15%">
+            <div class="layui-form-item">
+                <label class="layui-form-label">奖惩名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">奖惩说明</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">奖惩原因</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">批准机关</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">批准机关级别</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">批准日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">撤销日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-input-block" style="float:right;margin-right:3%">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="msgg5" style="display:none">
+        <form class="layui-form" style="margin-top:5px;margin-left:15%">
+            <div class="layui-form-item">
+                <label class="layui-form-label">评议开始日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">评议结束日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">评议结束</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">评议奖惩</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">评议奖惩说明</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                </div>
+            </div>
+
+            <div class="layui-input-block" style="float:right;margin-right:3%">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        //Demo
+        layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function () {
+            var table = layui.table;
+            var layer = layui.layer;
+            var $ = layui.jquery;
+            var element = layui.element;
+            var laydate = layui.laydate;
+            var form = layui.form;
+
+            $('#add1').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '70%'],
+                    content: $('#msgg')
+                })
+            })
+
+            $('#add2').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '54%'],
+                    content: $('#msgg1')
+                })
+            })
+
+            $('#add3').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '70%'],
+                    content: $('#msgg2')
+                })
+            })
+
+            $('#add4').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '54%'],
+                    content: $('#msgg3')
+                })
+            })
+
+            $('#add5').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '70%'],
+                    content: $('#msgg4')
+                })
+            })
+
+            $('#add6').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '54%'],
+                    content: $('#msgg5')
+                })
+            })
+
+            table.on('tool(stuFirst)', function (obj) {
+                var event = obj.event;
+                var that = $(this);
+                if (event === 'detail') {
+                    layer.open({
+                        type: 1,
+                        area: ['100%', '100%'],
+                        content: $('#HumanMessage') //这里content是一个普通的String
+                    });
+                }
+            });
+            //监听提交
+            form.on('submit(formDemo)', function (data) {
+                layer.msg(JSON.stringify(data.field));
+                return false;
+            });
+        });
+
+
+
+        layui.use('table', function () {
+            var table = layui.table;
+
+            //第一个实例
+            table.render({
+                elem: '#StudentMessage',
+                height: 125,
+                width: 1255,
+                page: false, //开启分页
+
+                cols: [
+                    [ //表头
+                        {
+                            field: 'id',
+                            title: '序号',
+                            width: 120,
+                            sort: true,
+                            fixed: 'left'
+                        }, {
+                            field: 'username',
+                            title: '姓名',
+                            width: 80
+                        }, {
+                            field: 'sex',
+                            title: '性别',
+                            width: 80,
+                            sort: true
+                        }, {
+                            field: 'city',
+                            title: '民族',
+                            width: 80
+                        }, {
+                            field: 'sign',
+                            title: '籍贯',
+                            width: 177
+                        }, {
+                            field: 'experience',
+                            title: '出生日期',
+                            width: 150,
+                            sort: true
+                        }, {
+                            field: 'score',
+                            title: '最高学历',
+                            width: 150,
+                            sort: true
+                        }, {
+                            field: 'classify',
+                            title: '岗位类型',
+                            width: 110
+                        }, {
+                            field: 'wealth',
+                            title: '岗位名称',
+                            width: 110,
+                            sort: true
+                        }, {
+                            field: 'status',
+                            title: '用户身份',
+                            width: 110,
+                            sort: true
+                        }, {
+                            field: 'btn',
+                            title: '操作',
+                            width: "6%",
+                            align: "center",
+                            toolbar: "#ipts"
+                        }
+                    ]
+                ],
+                data: [{
+                    "id": "1610252255",
+                    "username": "杨无心",
+                    "email": "xianxin@layui.com",
+                    "sex": "男",
+                    "city": "汉族",
+                    "sign": "河南省新乡市",
+                    "experience": "1998-02",
+                    "score": "本科",
+                    "classify": "副国级",
+                    "wealth": "无",
+                    "status": "大佬"
+                }]
+            });
+
+            //学历学位
+            table.render({
+                elem: '#party2',
+                cols: [
+                    [ //标题栏
+                        {
+                            type: 'checkbox',
+                            width: "5%",
+                        }, {
+                            field: 'PartyName',
+                            title: '教育类别',
+                            width: "15%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyId',
+                            title: '学历',
+                            width: "15%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyType',
+                            title: '入学时间',
+                            width: "15%",
+                            align: "center"
+                        }, {
+                            field: 'PartyAddress',
+                            title: '毕业日期',
+                            width: "15%",
+                            align: "center"
+                        }, {
+                            field: 'LeaderDate',
+                            title: '学位',
+                            width: "10%",
+                            align: "center"
+                        }, {
+                            field: 'EndDate',
+                            title: '学位授予日期',
+                            width: "15%",
+                            align: "center"
+                        }, {
+                            field: 'UserName',
+                            title: '毕业院校',
+                            width: "10%",
+                            align: "center"
+                        }
+                    ]
+                ],
+                page: false,
+                data: [{
+                        "PartyName": "学生第一党支部",
+                        "PartyId": "1921.7.1.3",
+                        "PartyType": "党支部",
+                        "PartyAddress": "软件学院",
+                        "LeaderDate": "",
+                        "EndDate": "",
+                        "CreateDate": "",
+                        "UserName": "王大锤",
+                    }, {
+                        "PartyName": "学生第一党支部",
+                        "PartyId": "1921.7.1.3",
+                        "PartyType": "党支部",
+                        "PartyAddress": "软件学院",
+                        "LeaderDate": "",
+                        "EndDate": "",
+                        "CreateDate": "",
+                        "UserName": "王大锤",
+                    }]
+                    //,skin: 'line' //表格风格
+                    ,
+                even: true
+            });
+            //工作岗位
+            table.render({
+                elem: '#party3',
+                cols: [
+                    [ //标题栏
+                        {
+                            type: 'checkbox',
+                            width: "5%",
+                        }, {
+                            field: 'PartyName',
+                            title: '开始日期',
+                            width: "20%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyId',
+                            title: '结束日期',
+                            width: "20%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyType',
+                            title: '工作岗位',
+                            width: "20%",
+                            align: "center"
+                        }, {
+                            field: 'PartyAddress',
+                            title: '一线情况',
+                            width: "20%",
+                            align: "center"
+                        }, {
+                            field: 'LeaderDate',
+                            title: '主要岗位',
+                            width: "14.5%",
+                            align: "center"
+                        }
+                    ]
+                ],
+                page: false,
+                data: [{
+                        "PartyName": "学生第一党支部",
+                        "PartyId": "1921.7.1.3",
+                        "PartyType": "党支部",
+                        "PartyAddress": "软件学院",
+                        "LeaderDate": "",
+                        "EndDate": "",
+                        "CreateDate": "",
+                        "UserName": "王大锤",
+                    }]
+                    //,skin: 'line' //表格风格
+                    ,
+                even: true
+            });
+
+            //党政职务
+            table.render({
+                elem: '#party4',
+                cols: [
+                    [ //标题栏
+                        {
+                            type: 'checkbox',
+                            width: "5%",
+                        }, {
+                            field: 'PartyName',
+                            title: '任职党组织',
+                            width: "15%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyId',
+                            title: '任职机构',
+                            width: "10%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyType',
+                            title: '职务名称',
+                            width: "10%",
+                            align: "center"
+                        }, {
+                            field: 'EndDate',
+                            title: '批准任职日期',
+                            width: "14.5%",
+                            align: "center"
+                        }, {
+                            field: 'CreateDate',
+                            title: '批准免职日期',
+                            width: "15%",
+                            align: "center"
+                        }, {
+                            field: 'PartyAddress',
+                            title: '主要职务',
+                            width: "15%",
+                            align: "center"
+                        }, {
+                            field: 'UserName',
+                            title: '班子成员',
+                            width: "15%",
+                            align: "center"
+                        },
+                    ]
+                ],
+                page: false,
+                data: [{
+                        "PartyName": "学生第一党支部",
+                        "PartyId": "1921.7.1.3",
+                        "PartyType": "党支部",
+                        "PartyAddress": "软件学院",
+                        "LeaderDate": "",
+                        "EndDate": "",
+                        "CreateDate": "",
+                        "UserName": "王大锤",
+                    }]
+                    //,skin: 'line' //表格风格
+                    ,
+                even: true
+            });
+            //技术职务
+            table.render({
+                elem: '#party5',
+                cols: [
+                    [ //标题栏
+                        {
+                            type: 'checkbox',
+                            width: "5%",
+                        }, {
+                            field: 'PartyName',
+                            title: '专业技术资格',
+                            width: "20%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyId',
+                            title: '获得资格日期',
+                            width: "15%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyType',
+                            title: '专业技术职务',
+                            width: "15%",
+                            align: "center"
+                        }, {
+                            field: 'EndDate',
+                            title: '聘任起始日期',
+                            width: "14.5%",
+                            align: "center"
+                        }, {
+                            field: 'CreateDate',
+                            title: '聘任终止日期',
+                            width: "15%",
+                            align: "center"
+                        }, {
+                            field: 'PartyAddress',
+                            title: '主要职务',
+                            width: "15%",
+                            align: "center"
+                        }
+                    ]
+                ],
+                page: false,
+                data: [{
+                        "PartyName": "学生第一党支部",
+                        "PartyId": "1921.7.1.3",
+                        "PartyType": "党支部",
+                        "PartyAddress": "软件学院",
+                        "LeaderDate": "",
+                        "EndDate": "",
+                        "CreateDate": "",
+                        "UserName": "王大锤",
+                    }]
+                    //,skin: 'line' //表格风格
+                    ,
+                even: true
+            });
+            //奖惩信息
+            table.render({
+                elem: '#party6',
+                cols: [
+                    [ //标题栏
+                        {
+                            type: 'checkbox',
+                            width: "5%",
+                        }, {
+                            field: 'PartyName',
+                            title: '奖惩名称',
+                            width: "15%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyId',
+                            title: '奖惩说明',
+                            width: "10%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyType',
+                            title: '奖惩原因',
+                            width: "10%",
+                            align: "center"
+                        }, {
+                            field: 'EndDate',
+                            title: '批准机关',
+                            width: "14.5%",
+                            align: "center"
+                        }, {
+                            field: 'CreateDate',
+                            title: '批准机关级别',
+                            width: "15%",
+                            align: "center"
+                        }, {
+                            field: 'PartyAddress',
+                            title: '批准日期',
+                            width: "15%",
+                            align: "center"
+                        }, {
+                            field: 'UserName',
+                            title: '撤销日期',
+                            width: "15%",
+                            align: "center"
+                        },
+                    ]
+                ],
+                page: false,
+                data: [{
+                        "PartyName": "学生第一党支部",
+                        "PartyId": "1921.7.1.3",
+                        "PartyType": "党支部",
+                        "PartyAddress": "软件学院",
+                        "LeaderDate": "",
+                        "EndDate": "",
+                        "CreateDate": "",
+                        "UserName": "王大锤",
+                    }]
+                    //,skin: 'line' //表格风格
+                    ,
+                even: true
+            });
+            //民主评议
+            table.render({
+                elem: '#party7',
+                cols: [
+                    [ //标题栏
+                        {
+                            type: 'checkbox',
+                            width: "5%",
+                        }, {
+                            field: 'PartyName',
+                            title: '评议开始日期',
+                            width: "20%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyId',
+                            title: '评议结束日期',
+                            width: "15%",
+                            align: "center"
+
+                        }, {
+                            field: 'PartyType',
+                            title: '评议结束',
+                            width: "15%",
+                            align: "center"
+                        }, {
+                            field: 'EndDate',
+                            title: '评议奖惩',
+                            width: "14.5%",
+                            align: "center"
+                        }, {
+                            field: 'CreateDate',
+                            title: '评议奖惩说明',
+                            width: "30%",
+                            align: "center"
+                        }
+                    ]
+                ],
+                page: false,
+                data: [{
+                        "PartyName": "学生第一党支部",
+                        "PartyId": "1921.7.1.3",
+                        "PartyType": "党支部",
+                        "PartyAddress": "软件学院",
+                        "LeaderDate": "",
+                        "EndDate": "",
+                        "CreateDate": "",
+                        "UserName": "王大锤",
+                    }]
+                    //,skin: 'line' //表格风格
+                    ,
+                even: true
+            });
+        });
+    </script>
+</body>
+
+</html>

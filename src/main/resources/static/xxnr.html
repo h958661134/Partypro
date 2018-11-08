@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>学习内容</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="/party/css/basic.css">
+
+	<link rel="stylesheet" href="/party/layui/css/layui.css" media="all">
+	<!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+	<script src="/party/layui/layui.js" charset="utf-8"></script>
+	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+</head>
+
+<body>
+	<div style="width: 85%;margin: 0 auto">
+		<p style="display: inline-block; color: deepskyblue; font-size: 24px;">学习内容</p>
+		<div style="float: right;">
+			<button class="layui-btn" id='add'>添加</button>
+			<button class="layui-btn">删除</button>
+		</div>
+		<div>
+			<form style="margin-top: 20px">
+				<table class="layui-hide" id="test"></table>
+			</form>
+		</div>
+	</div>
+
+</body>
+<div style="display: none;margin: 0 auto" id="add_study">
+	<form class="layui-form" style="text-align: ce">
+		<div class="layui-form-item" style="margin-top: 10px">
+			<div class="layui-inline">
+				<label class="layui-form-label">学习章节名</label>
+				<div class="layui-input-inline">
+					<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">视频路径</label>
+				<div class="layui-input-inline">
+					<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">本章总时间</label>
+					<div class="layui-input-inline">
+						<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">本章总分数</label>
+					<div class="layui-input-inline">
+						<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">学习内容</label>
+					<div class="layui-input-block">
+					  <textarea placeholder="请输入内容" class="layui-textarea" style="width: 510px;"></textarea>
+					</div>
+			</div>
+			<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+			</div>
+	</form>
+
+</div>
+<script>
+layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function () {
+        var table = layui.table;
+        var layer = layui.layer;
+        var $ = layui.jquery;
+        var element = layui.element;
+        var laydate = layui.laydate;
+        var form = layui.form;
+
+		 $('#add').click(function () {
+            layer.open({
+                type:1,
+                title: '增加学习内容',
+                area: '800px',
+                btn:[],
+                content: $('#add_study'),
+            });
+            return false
+        })
+		//展示已知数据
+		table.render({
+			elem: '#test',
+			page: true,
+			width: 1105,
+			cols: [
+				[ //标题栏
+					{
+						type: 'checkbox'
+					}, {
+						field: 'name',
+						width: 368,
+						title: '学习章节名'
+					}, {
+						field: 'time',
+						width: 368,
+						title: '学习总时间'
+					}, {
+						field: 'detail',
+						width: 316,
+						title: '详细'
+					}
+				]
+			],
+			page: true,
+			data: [{
+				"name": "第六章",
+				"time": "00:12:33",
+				"detail": "xianxin@layui.com"
+			}, {
+				"name": "第六章",
+				"time": "00:12:33",
+				"detail": "xianxin@layui.com"
+			}, {
+				"name": "第六章",
+				"time": "00:12:33",
+				"detail": "xianxin@layui.com"
+			}, {
+				"name": "第六章",
+				"time": "00:12:33",
+				"detail": "xianxin@layui.com"
+			}, {
+				"name": "第六章",
+				"time": "00:12:33",
+				"detail": "xianxin@layui.com"
+			}],
+			even: true
+
+		});
+	});
+</script>
+
+</html>
