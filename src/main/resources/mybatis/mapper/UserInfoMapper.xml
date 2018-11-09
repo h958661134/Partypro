@@ -5,7 +5,7 @@
 	<cache/>
 	<!-- 查找所有用户信息 （无条件）-->
 	<select id="selectAllUserInfo" resultType="com.henu.party.bean.UserInfo">
-		select * from tb_userInfo where partyState != 0 order by partyState
+		select * from tb_userInfo;
 	</select>
 	<!-- 分页查找所有用户信息 （有条件）-->
 	<select id="selectAllUserInfo_page" parameterType="int" resultType="com.henu.party.bean.UserInfo">

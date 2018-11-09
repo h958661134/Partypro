@@ -8,7 +8,7 @@ public class UserInfo implements Serializable{
 	 */
 	private String userName;
 	private String password;
-	private Integer partyState;
+	private String partyState;
 	private String name;
 	private String sex;
 	private String nation;
@@ -67,11 +67,11 @@ public class UserInfo implements Serializable{
 		this.password = password;
 	}
 
-	public Integer getPartyState() {
+	public String getPartyState() {
 		return partyState;
 	}
 
-	public void setPartyState(Integer partyState) {
+	public void setPartyState(String partyState) {
 		this.partyState = partyState;
 	}
 
@@ -387,7 +387,7 @@ public class UserInfo implements Serializable{
 		this.trainResult = trainResult;
 	}
 
-	public UserInfo(String userName, String password, Integer partyState, String name, String sex, String nation,
+	public UserInfo(String userName, String password, String partyState, String name, String sex, String nation,
 			String nativePlace, String birthDay, String partyInDate, String activeDate, String applyDate,
 			String bestEdu, String stationType, String stationName, String id, String address, String postalcode,
 			String policeStation, String startWork, String otherParty, String oPDate, String phone, float price,

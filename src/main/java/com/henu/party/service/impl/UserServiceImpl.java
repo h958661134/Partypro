@@ -4,6 +4,7 @@ import com.henu.party.bean.UserInfo;
 import com.henu.party.mapper.UserInfoMapper;
 import com.henu.party.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 /**
@@ -11,6 +12,7 @@ import java.util.List;
  * @Author: YangHongJian
  * @Date: 2018-11-1 17:10:44
  */
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -75,7 +77,6 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 通过学号删除用户信息
-     *
      * @param userName 用户学号
      * @return 返回是否成功
      */
