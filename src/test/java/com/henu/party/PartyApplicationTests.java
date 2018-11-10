@@ -1,5 +1,6 @@
 package com.henu.party;
 
+import com.henu.party.mapper.UserInfoMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,15 @@ import com.henu.party.mapper.SectionMapper;
 public class PartyApplicationTests {
 	@Autowired
 	SectionMapper mapper;
+
+	@Autowired
+	UserInfoMapper userInfoMapper;
 	@Test
 	public void contextLoads() {
-		System.out.println(mapper.selectAllSection());
+
+
+		String dangyuan = "党员";
+		userInfoMapper.selectMemberInfo(dangyuan);
 	}
 
 }

@@ -13,8 +13,8 @@
 	</select>
 	
 	<!-- 根据用户状态查找用户 -->
-	<select id="selectMemberInfo" parameterType="int" resultType="com.henu.party.bean.UserInfo">
-		select * from tb_userInfo where partyState = #{value} order by partyState
+	<select id="selectMemberInfo" parameterType="String" resultType="com.henu.party.bean.UserInfo">
+		select * from tb_userInfo where partyState = #{State}
 	</select>
 	<!-- 分页根据用户状态查找用户 -->
 	<select id="selectMemberInfo_page" parameterType="int" resultType="com.henu.party.bean.UserInfo">
@@ -23,32 +23,16 @@
 	
 	<!-- 根据党支部信息查找用户 -->
 	<select id="selectByPartyBranch" resultType="com.henu.party.bean.UserInfo">
-		select * from tb_userInfo where partyBranch like concat('%',#{arg0},'%') 
-		and partyState != 0
-		<if test="arg1 != -1">
-		and partyState = #{arg1}
-		</if>
-		order by partyState
+		select * from tb_userInfo where partyBranch like concat('%',#{arg0},'%')
 	</select>
 	<!-- 根据党支部信息查找用户（分页） -->
 	<select id="selectByPartyBranch_page" resultType="com.henu.party.bean.UserInfo">
-		select * from tb_userInfo where partyBranch like concat('%',#{arg0},'%') 
-		and partyState != 0
-		<if test="arg1 != -1">
-		and partyState = #{arg1}
-		</if>
-		order by partyState
-		limit #{arg2},#{arg3}
+		select * from tb_userInfo where partyBranch like concat('%',#{arg0},'%')
 	</select>
 	
 	<!-- 根据姓名查找 -->
 	<select id="selectByUserName" resultType="com.henu.party.bean.UserInfo">
 		select * from tb_userInfo where name like concat('%',#{arg0},'%')
-		and partyState != 0
-		<if test="arg1 != -1">
-		and partyState = #{arg1}
-		</if>
-		order by partyState
 	</select>
 	<!-- 根据姓名查找（分页）-->
 	<select id="selectByUserName_page" resultType="com.henu.party.bean.UserInfo">

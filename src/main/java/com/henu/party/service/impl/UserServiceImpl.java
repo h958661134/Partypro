@@ -33,9 +33,9 @@ public class UserServiceImpl implements UserService {
      * @return 返回所查询的用户
      */
     @Override
-    public List<UserInfo> getUserInfo(String name,int state) {
+    public List<UserInfo> getUserInfo(String name) {
 
-        return userInfoMapper.selectByUserName(name,state);
+        return userInfoMapper.selectByUserName(name);
     }
 
     /**
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
      * @return 返回对应状态的所有用户信息
      */
     @Override
-    public List<UserInfo> getUserByPartyState(int partyState) {
+    public List<UserInfo> getUserByPartyState(String partyState) {
 
         return userInfoMapper.selectMemberInfo(partyState);
     }
@@ -55,9 +55,9 @@ public class UserServiceImpl implements UserService {
      * @return 返回所有查询到的用户信息
      */
     @Override
-    public List<UserInfo> getByPartyBranchName(String PartyBranchName,int state) {
+    public List<UserInfo> getByPartyBranchName(String PartyBranchName) {
 
-        return userInfoMapper.selectByPartyBranch(PartyBranchName,state);
+        return userInfoMapper.selectByPartyBranch(PartyBranchName);
     }
 
     /**
@@ -82,7 +82,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean delateUser(String userName,int state) {
-        if(userInfoMapper.selectByUserName(userName,state)!=null) {
+        if(userInfoMapper.selectByUserName(userName)!=null) {
             userInfoMapper.deleteByUserName(userName);
             return true;
         }else

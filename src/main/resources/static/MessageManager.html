@@ -32,33 +32,33 @@
                 <div class="" style="margin-top: 5px;float: left;">
                     <h2 style="margin-bottom: 5px">基本信息</h2>
                 </div>
-                <a class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal">党员</a>
-                <a class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal">预备党员</a>
-                <a class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal">发展对象</a>
-                <a class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal">入党积极分子</a>
+                <a class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal" id="PartyMember">党员</a>
+                <a class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal" id="ProbationaryMember">预备党员</a>
+                <a class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal" id="DevelopmentObject">发展对象</a>
+                <a class="layui-btn layui-btn-radius layui-btn-sm layui-btn-normal" id="PartyActivists">入党积极分子</a>
             </div>
 
 
             <div class="layui-col-md6">
-
+                <form class="layui-form">
                 <div class="layui-input-inline layui-col-md1">
-                    <select name="city" class="sm-input" lay-verify="required">
+                    <select name="searchStatus" class="sm-input" lay-verify="required" id="searchStatus">
                         <option value="">请选择搜索类型</option>
                         <option value="0">党支部</option>
                         <option value="1">用户</option>
                     </select>
                 </div>
                 <div class="layui-input-inline layui-col-md1">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off"
+                    <input type="text" name="selectName" id="selectdata" required lay-verify="required" placeholder="请输入" autocomplete="off"
                         class="layui-input">
                 </div>
                 <div class="layui-btn-group layui-col-md1">
-                    <a class="layui-btn  layui-btn-normal">搜索</a>
+                    <a class="layui-btn layui-btn-normal" lay-submit lay-filter="Search" id="Search">搜索</a>
                 </div>
-
+                </form>
                 <div class="layui-btn-group layui-col-md3 aGroup">
-                    <a class="layui-btn  layui-btn-normal">增加</a>
-                    <a class="layui-btn  layui-btn-normal">删除</a>
+                    <a class="layui-btn layui-btn-normal">增加</a>
+                    <a class="layui-btn layui-btn-normal">删除</a>
                 </div>
             </div>
             <div class="layui-col-md12">
@@ -1042,9 +1042,53 @@
 
 
 
-        layui.use(['table','jquery'], function () {
+        layui.use(['table','jquery','form'], function () {
             var table = layui.table;
             var $ = layui.jquery;
+            var form = layui.form
+            $('#PartyMember').click(function () {
+                $.post("/party/user/SelectByInfo",{"type":"党员"},function (data) {
+                    TableData(data)
+                })
+            })
+
+            $('#ProbationaryMember').click(function () {
+                $.post("/party/user/SelectByInfo",{"type":"预备党员"},function (data) {
+                    TableData(data)
+                })
+            })
+
+            $('#DevelopmentObject').click(function () {
+                $.post("/party/user/SelectByInfo",{"type":"发展对象"},function (data) {
+                    TableData(data)
+                })
+            })
+
+            $('#PartyActivists').click(function () {
+                $.post("/party/user/SelectByInfo",{"type":"入党积极分子"},function (data) {
+                    TableData(data)
+                })
+            })
+
+            // $('#Search').click(function () {
+            //     console.log("点击事件触发")
+            //
+            //
+            // })
+
+            form.on('submit(Search)', function(data){
+                // console.log(data.elem)
+                // console.log(data.form)
+                console.log(data.field)
+                $.post("/party/user/search",data.field,
+                    function (data) {
+                    console.log(data)
+                        TableData(data)
+                    })
+                return false;
+            });
+
+
 
             $.post("/party/User/UserInfo",function (data) {
                 // console.log(data)

@@ -15,20 +15,20 @@ public interface UserService {
      * @param name 将要查询的用户姓名
      * @return 返回所查询的用户
      */
-    public List<UserInfo> getUserInfo(String name,int state);
+    public List<UserInfo> getUserInfo(String name);
 
     /**
      * @param partyState 代表入党状态的数字
      * @return 返回对应状态的所有用户信息
      */
-    public List<UserInfo> getUserByPartyState(int partyState);
+    public List<UserInfo> getUserByPartyState(String partyState);
 
     /**
      * 通过党支部名称查询对应的用户
      * @param PartyBranchName 党支部名字
      * @return 返回所有查询到的用户信息
      */
-    public List<UserInfo> getByPartyBranchName(String PartyBranchName,int state);
+    public List<UserInfo> getByPartyBranchName(String PartyBranchName);
 
     /**
      * 添加一个用户

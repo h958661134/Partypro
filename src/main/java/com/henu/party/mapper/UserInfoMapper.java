@@ -25,17 +25,18 @@ public interface UserInfoMapper {
 	public List<UserInfo> selectAllUserInfo_page(int start,int ps);
 	
 	//根据用户状态查找用户
-	public List<UserInfo> selectMemberInfo(int partyState);
+	public List<UserInfo> selectMemberInfo(@Param("State")String value);
 	//分页根据用户状态查找
 	public List<UserInfo> selectMemberInfo_page(int partyState,int start,int ps);
 	
 	//根据党支部信息查找不同入党状态的用户
-	public List<UserInfo> selectByPartyBranch(String partyBranch,int partyState);
+	public List<UserInfo> selectByPartyBranch(String partyBranch);
+
 	//根据党支部信息查找不同入党状态的用户（分页）
 	public List<UserInfo> selectByPartyBranch_page(String partyBranch,int partyState,int start,int ps);
 	
 	//根据姓名名查找
-	public List<UserInfo> selectByUserName(String userName,int partyState);
+	public List<UserInfo> selectByUserName(String userName);
 	//根据姓名查找（分页）
 	public List<UserInfo> selectByUserName_page(String userName,int partyState,int start,int ps);
 	
