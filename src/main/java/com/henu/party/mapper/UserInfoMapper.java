@@ -72,5 +72,7 @@ public interface UserInfoMapper {
 	public List<OutBoard> selectAllOutBoard();
 
 	public void deleteByUserName(String userName);
+
+	public UserInfo selectUserInfoByUsername(String Username);
 	
 }

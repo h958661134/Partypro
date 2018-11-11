@@ -5,6 +5,12 @@ import com.henu.party.bean.UserInfo;
 import java.util.List;
 
 public interface UserService {
+
+    /**
+     * 根据主键查询实例
+     * @return
+     */
+    public UserInfo getAUserInfo(String userName);
     /**
      * 返回现在存在的所有的用户信息
      * @return 所有用户信息

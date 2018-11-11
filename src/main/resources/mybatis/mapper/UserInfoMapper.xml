@@ -131,4 +131,8 @@
 		DELETE FROM tb_userInfo WHERE userName=#{userName}
 	</delete>
 
+	<select id="selectUserInfoByUsername" resultType="com.henu.party.bean.UserInfo">
+		SELECT * from tb_userInfo WHERE userName=#{userName}
+	</select>
+
 </mapper>

@@ -19,6 +19,16 @@ public class UserServiceImpl implements UserService {
     public UserInfoMapper userInfoMapper;
 
     /**
+     * 根据主键查询实例
+     *
+     * @return
+     */
+    @Override
+    public UserInfo getAUserInfo(String userName) {
+        return userInfoMapper.selectUserInfoByUsername(userName);
+    }
+
+    /**
      * 返回现在存在的所有的用户信息
      * @return 所有用户信息
      */
@@ -88,4 +98,6 @@ public class UserServiceImpl implements UserService {
         }else
             return false;
     }
+
+
 }
