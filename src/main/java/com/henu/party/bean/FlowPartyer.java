@@ -1,6 +1,8 @@
 package com.henu.party.bean;
 
-public class FlowPartyer {
+import java.io.Serializable;
+
+public class FlowPartyer implements Serializable {
 	private String userName;
 	private String flowStyle;
 	private String flowAccount;

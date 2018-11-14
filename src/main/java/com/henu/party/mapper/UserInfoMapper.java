@@ -60,7 +60,9 @@ public interface UserInfoMapper {
 	
 	//根据用户名（主键）查找
 	public String selectOnlyUserName(String userName);
-	
+	//根据主键更新一个实例
+	public void updateByUserName(UserInfo userInfo);
+
 	public List<EduDegree> selectAllEduDegree();
 	public List<DemoMeet> selectAllDemoMeet();
 	public List<JobStation> selectAllJobStation();
@@ -74,5 +76,12 @@ public interface UserInfoMapper {
 	public void deleteByUserName(String userName);
 
 	public UserInfo selectUserInfoByUsername(String Username);
-	
+	//根据学号查找出国信息
+	public OutBoard selectOutboardByUserName(String userName);
+	//根据学号查找党员流动信息
+	public FlowPartyer selectFlowPartyerByUserName(String userName);
+	//根据学号查找党员贫困信息
+	public PoorPartyer selectPoorPartyerByUserName(String userName);
+
+
 }

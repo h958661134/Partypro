@@ -1,5 +1,8 @@
 package com.henu.party.service.impl;
 
+import com.henu.party.bean.FlowPartyer;
+import com.henu.party.bean.OutBoard;
+import com.henu.party.bean.PoorPartyer;
 import com.henu.party.bean.UserInfo;
 import com.henu.party.mapper.UserInfoMapper;
 import com.henu.party.service.UserService;
@@ -97,6 +100,32 @@ public class UserServiceImpl implements UserService {
             return true;
         }else
             return false;
+    }
+
+    /**
+     * 修改用户信息
+     * @param userInfo
+     * @return 返回是否删除
+     */
+    @Override
+    public boolean updateUserInfo(UserInfo userInfo) {
+        userInfoMapper.updateByUserName(userInfo);
+        return true;
+    }
+
+    @Override
+    public OutBoard getOutboard(String userName) {
+        return userInfoMapper.selectOutboardByUserName(userName);
+    }
+
+    @Override
+    public FlowPartyer getFlowPartyer(String userName) {
+        return userInfoMapper.selectFlowPartyerByUserName(userName);
+    }
+
+    @Override
+    public PoorPartyer getPoorPartyer(String userName) {
+        return userInfoMapper.selectPoorPartyerByUserName(userName);
     }
 
 

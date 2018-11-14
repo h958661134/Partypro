@@ -1,5 +1,8 @@
 package com.henu.party.controller;
 
+import com.henu.party.bean.FlowPartyer;
+import com.henu.party.bean.OutBoard;
+import com.henu.party.bean.PoorPartyer;
 import com.henu.party.bean.UserInfo;
 import com.henu.party.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +74,8 @@ public class UserInfoController {
      */
     @RequestMapping("/user/update")
     public boolean updateUserInfo(UserInfo userInfo){
-
+        System.err.println(userInfo);
+        userService.updateUserInfo(userInfo);
         return true;
     }
 
@@ -106,5 +110,38 @@ public class UserInfoController {
     public boolean updateSelectAll(List list){
 
         return true;
+    }
+
+    /**
+     * 根据学号查找出国信息
+     * @param userName
+     * @return
+     */
+    @RequestMapping("/user/getOutBoard")
+    public OutBoard getOutBoardMsg(String userName){
+
+        return userService.getOutboard(userName);
+    }
+
+    /**
+     * 根据学号查找党员流动信息
+     * @param userName
+     * @return
+     */
+    @RequestMapping("/user/getFlowPartyer")
+    public FlowPartyer getFlowPartyerMsg(String userName){
+
+        return userService.getFlowPartyer(userName);
+    }
+
+    /**
+     * 根据学号查找党员贫困信息
+     * @param userName
+     * @return
+     */
+    @RequestMapping("/user/getPoorPartyer")
+    public PoorPartyer getPoorPartyerMsg(String userName){
+
+        return userService.getPoorPartyer(userName);
     }
 }

@@ -1,6 +1,8 @@
 package com.henu.party.bean;
 
-public class OutBoard {
+import java.io.Serializable;
+
+public class OutBoard implements Serializable {
 	private String userName;
 	private String goCountry;
 	private String goAbroadDate;

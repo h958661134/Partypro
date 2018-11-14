@@ -134,5 +134,30 @@
 	<select id="selectUserInfoByUsername" resultType="com.henu.party.bean.UserInfo">
 		SELECT * from tb_userInfo WHERE userName=#{userName}
 	</select>
+	
+	<update id="updateByUserName" parameterType="com.henu.party.bean.UserInfo">
+		update tb_userInfo set
+		userName=#{userName},password=#{password},partyState=#{partyState},name=#{name},sex=#{sex},nation=#{nation},
+		nativePlace=#{nativePlace},birthDay=#{birthDay},partyInDate=#{partyInDate},activeDate=#{activeDate},applyDate=#{applyDate},
+		bestEdu=#{bestEdu},stationType=#{stationType},stationName=#{stationName},id=#{id},address=#{address},postalcode=#{postalcode},
+		policeStation=#{policeStation},startWork=#{startWork},otherParty=#{otherParty},oPDate=#{oPDate},phone=#{phone},price=#{price},eduType=#{eduType},
+		timeInSch=#{timeInSch},timeOutSch=#{timeOutSch},degree=#{degree},timeToWork=#{timeToWork},newStatus=#{newStatus},isWorker=#{isWorker},
+		partyType=#{partyType},positiveDates=#{positiveDates},positiveCase=#{positiveCase},enterDate=#{enterDate},enterType=#{enterType},workPlace=#{workPlace},
+		partyBranch=#{partyBranch},developPeople=#{developPeople},developDate=#{developDate},partyTrain=#{partyTrain},trainDate=#{trainDate},
+		trainResult=#{trainResult}
+		WHERE userName = #{userName}
+	</update>
+    
+    <select id="selectOutboardByUserName" parameterType="java.lang.String" resultType="com.henu.party.bean.OutBoard">
+        select * from tb_outboard where userName=#{userName}
+    </select>
+
+    <select id="selectFlowPartyerByUserName" parameterType="java.lang.String" resultType="com.henu.party.bean.FlowPartyer">
+        select * from tb_flowpartyer where userName=#{userName}
+    </select>
+
+    <select id="selectPoorPartyerByUserName" parameterType="java.lang.String" resultType="com.henu.party.bean.PoorPartyer">
+        select * from tb_poorpartyer where userName=#{userName}
+    </select>
 
 </mapper>

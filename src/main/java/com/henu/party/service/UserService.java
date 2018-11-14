@@ -1,5 +1,8 @@
 package com.henu.party.service;
 
+import com.henu.party.bean.FlowPartyer;
+import com.henu.party.bean.OutBoard;
+import com.henu.party.bean.PoorPartyer;
 import com.henu.party.bean.UserInfo;
 
 import java.util.List;
@@ -49,4 +52,10 @@ public interface UserService {
      * @return 返回是否成功
      */
     public boolean delateUser(String userName,int state);
+
+    public boolean updateUserInfo(UserInfo userInfo);
+
+    public OutBoard getOutboard(String userName);
+    public FlowPartyer getFlowPartyer(String userName);
+    public PoorPartyer getPoorPartyer(String userName);
 }

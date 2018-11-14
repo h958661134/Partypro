@@ -1,6 +1,8 @@
 package com.henu.party.bean;
 
-public class PoorPartyer {
+import java.io.Serializable;
+
+public class PoorPartyer implements Serializable {
 	private String userName;
 	private String poorPartstyle;
 	private String healthCondition;
