@@ -160,4 +160,43 @@
         select * from tb_poorpartyer where userName=#{userName}
     </select>
 
+	<update id="updateOutboard">
+		UPDATE  tb_outboard SET
+			userName=#{userName},
+			goCountry=#{goCountry},
+			goAbroadDate=#{goAbroadDate},
+			goAbroadAccount=#{goAbroadAccount},
+			touchCondition=#{touchCondition},
+			repatriateCondition=#{repatriateCondition},
+			repatriateDate=#{repatriateDate}
+		WHERE userName=#{username}
+	</update>
+
+	<update id="updateFlowPartyer">
+		UPDATE  tb_flowpartyer SET
+			userName=#{userName},
+			flowStyle=#{flowStyle},
+			flowAccount=#{flowAccount},
+			activityId=#{activityId},
+			flowUnit=#{flowUnit},
+			flowDate=#{flowDate},
+			outOfContacts=#{outOfContacts},
+			outOfContactway=#{outOfContactway},
+			inFlowContacts=#{inFlowContacts},
+			inContactway=#{inContactway},
+			touchCondition=#{touchCondition}
+		WHERE userName=#{username}
+	</update>
+
+	<update id="updatePoorPartyer">
+		UPDATE  tb_poorpartyer SET
+			userName=#{userName},
+			poorPartstyle=#{poorPartstyle},
+			healthCondition=#{healthCondition},
+			poorPartSubsidy=#{poorPartSubsidy},
+			otherSubsidy=#{otherSubsidy}
+		WHERE userName=#{username}
+	</update>
+
+
 </mapper>

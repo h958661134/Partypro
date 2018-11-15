@@ -82,6 +82,12 @@ public interface UserInfoMapper {
 	public FlowPartyer selectFlowPartyerByUserName(String userName);
 	//根据学号查找党员贫困信息
 	public PoorPartyer selectPoorPartyerByUserName(String userName);
+	//更新出国信息
+	public void updateOutboard(OutBoard outBoard);
+	//更新人员流动信息
+	public void updateFlowPartyer(FlowPartyer flowPartyer);
+	//更新贫困信息
+	public void updatePoorPartyer(PoorPartyer poorPartyer);
 
 
 }
