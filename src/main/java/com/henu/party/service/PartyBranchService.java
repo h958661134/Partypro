@@ -8,7 +8,7 @@ import com.henu.party.bean.PartyBranch;
 
 public interface PartyBranchService {
 	//根据userName得到某一党支部所有信息
-	public PartyBranch ManagerByUsername(@Param("userName")String username) throws Exception;
+	public PartyBranch ManagerByUsername(@Param("userName")String username);
 	/*
 	 * 所有党支部信息的集合
 	 */
