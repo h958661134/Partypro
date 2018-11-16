@@ -88,4 +88,6 @@ public interface UserService {
     public List<RewardPunish> selectRewardPunishByUserName(String userName);
 
     public List<DemoMeet> selectDemoMeetByUserName(String userName);
+
+    public List<PartyDuty> selectPartyDutyByUserName(String username);
 }

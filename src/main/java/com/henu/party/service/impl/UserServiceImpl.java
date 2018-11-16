@@ -27,6 +27,8 @@ public class UserServiceImpl implements UserService {
     public JobStationMapper jobStationMapper;
     @Autowired
     public RewardPunishMapper rewardPunishMapper;
+    @Autowired
+    public PartyDutyMapper partyDutyMapper;
 
     /**
      * 根据主键查询实例
@@ -184,6 +186,11 @@ public class UserServiceImpl implements UserService {
     public List<DemoMeet> selectDemoMeetByUserName(String userName) {
 
         return demomeetMapper.selectByUserName(userName);
+    }
+
+    @Override
+    public List<PartyDuty> selectPartyDutyByUserName(String username) {
+        return partyDutyMapper.selectByUserName(username);
     }
 
 

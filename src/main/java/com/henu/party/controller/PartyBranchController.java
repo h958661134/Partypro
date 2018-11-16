@@ -63,7 +63,7 @@ public class PartyBranchController {
 	 * @param name
 	 * @return
 	 */
-	@RequestMapping("/partybranch/allPartyBranch")
+	@RequestMapping("/partybranch/allPartyBranch1")
 	public List PartyBranchFuzzy(String name){
 		return pbS.PartyBranchFuzzy(name);
 	}
@@ -166,7 +166,7 @@ public class PartyBranchController {
 	 * @param p
 	 * @return
 	 */
-	@RequestMapping("/partybranch/insertParBranchCom")
+	@RequestMapping("/partybranch/insertParBranchCom1")
 	public boolean batchDeleteParCom(String[] p){
 		
 		

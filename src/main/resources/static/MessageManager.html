@@ -1086,10 +1086,33 @@
                         })
                     })
 
+                    $.post('/party/user/getTechDuty',param,function (data) {
+                        TectDutyTable(data)
+                    })
+
+                    $.post('/party/user/getEduDegree',param,function(data){
+                        EduDegreeTable(data)
+                    })
+
+                    $.post('/party/user/getJobStation',param,function(data){
+                        JobstationTable(data)
+                    })
+
+                    $.post('/party/user/getRewardPunish',param,function(data){
+                        RewardPunishTable(data)
+                    })
+
+                    $.post('/party/user/getDemoMeet',param,function(data){
+                        DemoMeetTable(data)
+                    })
+
+                    $.post('/party/user/getPartyDuty',param,function(data){
+                        PartyDutyTable(data)
+                    })
 
 
                 }
-            });
+
             //监听提交
             form.on('submit(userInfoUpdate)', function (data) {
                 $.post('/party/user/update',data.field,function (data) {
@@ -1124,43 +1147,29 @@
             });
         });
 
-
-
-
-
-        layui.use(['table','jquery','form'], function () {
-            var table = layui.table;
-            var $ = layui.jquery;
-            var form = layui.form
             $('#PartyMember').click(function () {
                 $.post("/party/user/SelectByInfo",{"type":"党员"},function (data) {
-                    TableData(data)
+                    UserTableData(data)
                 })
             })
 
             $('#ProbationaryMember').click(function () {
                 $.post("/party/user/SelectByInfo",{"type":"预备党员"},function (data) {
-                    TableData(data)
+                    UserTableData(data)
                 })
             })
 
             $('#DevelopmentObject').click(function () {
                 $.post("/party/user/SelectByInfo",{"type":"发展对象"},function (data) {
-                    TableData(data)
+                    UserTableData(data)
                 })
             })
 
             $('#PartyActivists').click(function () {
                 $.post("/party/user/SelectByInfo",{"type":"入党积极分子"},function (data) {
-                    TableData(data)
+                    UserTableData(data)
                 })
             })
-
-            // $('#Search').click(function () {
-            //     console.log("点击事件触发")
-            //
-            //
-            // })
 
             form.on('submit(Search)', function(data){
                 // console.log(data.elem)
@@ -1169,7 +1178,7 @@
                 $.post("/party/user/search",data.field,
                     function (data) {
                     console.log(data)
-                        TableData(data)
+                        UserTableData(data)
                     })
                 return false;
             });
@@ -1178,10 +1187,10 @@
 
             $.post("/party/User/UserInfo",function (data) {
                 // console.log(data)
-                TableData(data)
+                UserTableData(data)
             },"json")
-            function TableData(data){
 
+            function UserTableData(data){
                 table.render({
                     elem: '#StudentMessage',
                     // url: '/User/UserInfo',
@@ -1246,25 +1255,12 @@
                         }
                         ]
                     ],
-                    // data: [{
-                    //     "id": "1610252255",
-                    //     "username": "杨无心",
-                    //     "email": "xianxin@layui.com",
-                    //     "sex": "男",
-                    //     "city": "汉族",
-                    //     "sign": "河南省新乡市",
-                    //     "experience": "1998-02",
-                    //     "score": "本科",
-                    //     "classify": "副国级",
-                    //     "wealth": "无",
-                    //     "status": "大佬"
-                    // }]
                     data:data
                 });
             }
             //第一个实例
 
-
+            function EduDegreeTable(data){
             //学历学位
             table.render({
                 elem: '#party2',
@@ -1274,39 +1270,39 @@
                             type: 'checkbox',
                             width: "5%",
                         }, {
-                            field: 'PartyName',
+                            field: 'eduSector',
                             title: '教育类别',
                             width: "15%",
                             align: "center"
 
                         }, {
-                            field: 'PartyId',
+                            field: 'edu',
                             title: '学历',
                             width: "15%",
                             align: "center"
 
                         }, {
-                            field: 'PartyType',
+                            field: 'enDate',
                             title: '入学时间',
                             width: "15%",
                             align: "center"
                         }, {
-                            field: 'PartyAddress',
+                            field: 'gradDate',
                             title: '毕业日期',
                             width: "15%",
                             align: "center"
                         }, {
-                            field: 'LeaderDate',
+                            field: 'acaDegree',
                             title: '学位',
                             width: "10%",
                             align: "center"
                         }, {
-                            field: 'EndDate',
+                            field: 'dcDate',
                             title: '学位授予日期',
                             width: "15%",
                             align: "center"
                         }, {
-                            field: 'UserName',
+                            field: 'graduate',
                             title: '毕业院校',
                             width: "10%",
                             align: "center"
@@ -1314,92 +1310,67 @@
                     ]
                 ],
                 page: false,
-                data: [{
-                        "PartyName": "学生第一党支部",
-                        "PartyId": "1921.7.1.3",
-                        "PartyType": "党支部",
-                        "PartyAddress": "软件学院",
-                        "LeaderDate": "",
-                        "EndDate": "",
-                        "CreateDate": "",
-                        "UserName": "王大锤",
-                    }, {
-                        "PartyName": "学生第一党支部",
-                        "PartyId": "1921.7.1.3",
-                        "PartyType": "党支部",
-                        "PartyAddress": "软件学院",
-                        "LeaderDate": "",
-                        "EndDate": "",
-                        "CreateDate": "",
-                        "UserName": "王大锤",
-                    }]
-                    //,skin: 'line' //表格风格
-                    ,
+                data: data,
                 even: true
             });
-            //工作岗位
-            table.render({
-                elem: '#party3',
-                cols: [
-                    [ //标题栏
-                        {
-                            type: 'checkbox',
-                            width: "5%",
-                        }, {
-                            field: 'PartyName',
+            }
+
+            function JobstationTable(data){
+                //工作岗位
+                table.render({
+                    elem: '#party3',
+                    cols: [
+                        [ //标题栏
+                            {
+                                type: 'checkbox',
+                                width: "5%",
+                            }, {
+                            field: 'startDate',
                             title: '开始日期',
                             width: "20%",
                             align: "center"
 
                         }, {
-                            field: 'PartyId',
+                            field: 'endDate',
                             title: '结束日期',
                             width: "20%",
                             align: "center"
 
                         }, {
-                            field: 'PartyType',
+                            field: 'post',
                             title: '工作岗位',
                             width: "20%",
                             align: "center"
                         }, {
-                            field: 'PartyAddress',
+                            field: 'firstLineSituation',
                             title: '一线情况',
                             width: "20%",
                             align: "center"
                         }, {
-                            field: 'LeaderDate',
+                            field: 'mainPost',
                             title: '主要岗位',
                             width: "14.5%",
                             align: "center"
                         }
-                    ]
-                ],
-                page: false,
-                data: [{
-                        "PartyName": "学生第一党支部",
-                        "PartyId": "1921.7.1.3",
-                        "PartyType": "党支部",
-                        "PartyAddress": "软件学院",
-                        "LeaderDate": "",
-                        "EndDate": "",
-                        "CreateDate": "",
-                        "UserName": "王大锤",
-                    }]
-                    //,skin: 'line' //表格风格
-                    ,
-                even: true
-            });
+                        ]
+                    ],
+                    page: false,
+                    data:data,
+                    even: true
+                });
+            }
 
-            //党政职务
-            table.render({
-                elem: '#party4',
-                cols: [
-                    [ //标题栏
-                        {
-                            type: 'checkbox',
-                            width: "5%",
-                        }, {
+
+            function PartyDutyTable(data){
+                //党政职务
+                table.render({
+                    elem: '#party4',
+                    cols: [
+                        [ //标题栏
+                            {
+                                type: 'checkbox',
+                                width: "5%",
+                            }, {
                             field: 'PartyName',
                             title: '任职党组织',
                             width: "15%",
@@ -1437,197 +1408,162 @@
                             width: "15%",
                             align: "center"
                         },
-                    ]
-                ],
-                page: false,
-                data: [{
-                        "PartyName": "学生第一党支部",
-                        "PartyId": "1921.7.1.3",
-                        "PartyType": "党支部",
-                        "PartyAddress": "软件学院",
-                        "LeaderDate": "",
-                        "EndDate": "",
-                        "CreateDate": "",
-                        "UserName": "王大锤",
-                    }]
-                    //,skin: 'line' //表格风格
-                    ,
-                even: true
-            });
-            //技术职务
-            table.render({
-                elem: '#party5',
-                cols: [
-                    [ //标题栏
-                        {
-                            type: 'checkbox',
-                            width: "5%",
-                        }, {
-                            field: 'PartyName',
+                        ]
+                    ],
+                    page: false,
+                    data: data,
+                    even: true
+                });
+            }
+            function TectDutyTable(data){
+                //技术职务
+                table.render({
+                    elem: '#party5',
+                    cols: [
+                        [ //标题栏
+                            {
+                                type: 'checkbox',
+                                width: "5%",
+                            }, {
+                            field: 'techTitle',
                             title: '专业技术资格',
                             width: "20%",
                             align: "center"
 
                         }, {
-                            field: 'PartyId',
+                            field: 'getTime',
                             title: '获得资格日期',
                             width: "15%",
                             align: "center"
 
                         }, {
-                            field: 'PartyType',
+                            field: 'techPosition',
                             title: '专业技术职务',
                             width: "15%",
                             align: "center"
                         }, {
-                            field: 'EndDate',
+                            field: 'startTime',
                             title: '聘任起始日期',
                             width: "14.5%",
                             align: "center"
                         }, {
-                            field: 'CreateDate',
+                            field: 'endTime',
                             title: '聘任终止日期',
                             width: "15%",
                             align: "center"
                         }, {
-                            field: 'PartyAddress',
+                            field: 'mainDuty',
                             title: '主要职务',
                             width: "15%",
                             align: "center"
                         }
-                    ]
-                ],
-                page: false,
-                data: [{
-                        "PartyName": "学生第一党支部",
-                        "PartyId": "1921.7.1.3",
-                        "PartyType": "党支部",
-                        "PartyAddress": "软件学院",
-                        "LeaderDate": "",
-                        "EndDate": "",
-                        "CreateDate": "",
-                        "UserName": "王大锤",
-                    }]
-                    //,skin: 'line' //表格风格
-                    ,
-                even: true
-            });
-            //奖惩信息
-            table.render({
-                elem: '#party6',
-                cols: [
-                    [ //标题栏
-                        {
-                            type: 'checkbox',
-                            width: "5%",
-                        }, {
-                            field: 'PartyName',
+                        ]
+                    ],
+                    page: false,
+                    data: data,
+                    even: true
+                });
+            }
+
+            function RewardPunishTable(data){
+                //奖惩信息
+                table.render({
+                    elem: '#party6',
+                    cols: [
+                        [ //标题栏
+                            {
+                                type: 'checkbox',
+                                width: "5%",
+                            }, {
+                            field: 'name',
                             title: '奖惩名称',
                             width: "15%",
                             align: "center"
 
                         }, {
-                            field: 'PartyId',
+                            field: 'explanation',
                             title: '奖惩说明',
                             width: "10%",
                             align: "center"
 
                         }, {
-                            field: 'PartyType',
+                            field: 'reason',
                             title: '奖惩原因',
                             width: "10%",
                             align: "center"
                         }, {
-                            field: 'EndDate',
+                            field: 'appAuthority',
                             title: '批准机关',
                             width: "14.5%",
                             align: "center"
                         }, {
-                            field: 'CreateDate',
+                            field: 'appAuthLevel',
                             title: '批准机关级别',
                             width: "15%",
                             align: "center"
                         }, {
-                            field: 'PartyAddress',
+                            field: 'ratiTime',
                             title: '批准日期',
                             width: "15%",
                             align: "center"
                         }, {
-                            field: 'UserName',
+                            field: 'revoTime',
                             title: '撤销日期',
                             width: "15%",
                             align: "center"
                         },
-                    ]
-                ],
-                page: false,
-                data: [{
-                        "PartyName": "学生第一党支部",
-                        "PartyId": "1921.7.1.3",
-                        "PartyType": "党支部",
-                        "PartyAddress": "软件学院",
-                        "LeaderDate": "",
-                        "EndDate": "",
-                        "CreateDate": "",
-                        "UserName": "王大锤",
-                    }]
-                    //,skin: 'line' //表格风格
-                    ,
-                even: true
-            });
-            //民主评议
-            table.render({
-                elem: '#party7',
-                cols: [
-                    [ //标题栏
-                        {
-                            type: 'checkbox',
-                            width: "5%",
-                        }, {
-                            field: 'PartyName',
+                        ]
+                    ],
+                    page: false,
+                    data: data,
+                    even: true
+                });
+            }
+            function DemoMeetTable(data){
+                //民主评议
+                table.render({
+                    elem: '#party7',
+                    cols: [
+                        [ //标题栏
+                            {
+                                type: 'checkbox',
+                                width: "5%",
+                            }, {
+                            field: 'startTime',
                             title: '评议开始日期',
                             width: "20%",
                             align: "center"
 
                         }, {
-                            field: 'PartyId',
+                            field: 'endTime',
                             title: '评议结束日期',
                             width: "15%",
                             align: "center"
 
                         }, {
-                            field: 'PartyType',
+                            field: 'result',
                             title: '评议结束',
                             width: "15%",
                             align: "center"
                         }, {
-                            field: 'EndDate',
+                            field: 'rewardPunish',
                             title: '评议奖惩',
                             width: "14.5%",
                             align: "center"
                         }, {
-                            field: 'CreateDate',
+                            field: 'rewardPunishReason',
                             title: '评议奖惩说明',
                             width: "30%",
                             align: "center"
                         }
-                    ]
-                ],
-                page: false,
-                data: [{
-                        "PartyName": "学生第一党支部",
-                        "PartyId": "1921.7.1.3",
-                        "PartyType": "党支部",
-                        "PartyAddress": "软件学院",
-                        "LeaderDate": "",
-                        "EndDate": "",
-                        "CreateDate": "",
-                        "UserName": "王大锤",
-                    }]
-                    //,skin: 'line' //表格风格
-                    ,
-                even: true
-            });
+                        ]
+                    ],
+                    page: false,
+                    data: data,
+                    even: true
+                });
+
+            }
         });
     </script>
 </body>

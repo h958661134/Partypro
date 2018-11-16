@@ -1,9 +1,6 @@
 package com.henu.party.controller;
 
-import com.henu.party.bean.FlowPartyer;
-import com.henu.party.bean.OutBoard;
-import com.henu.party.bean.PoorPartyer;
-import com.henu.party.bean.UserInfo;
+import com.henu.party.bean.*;
 import com.henu.party.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -152,6 +149,7 @@ public class UserInfoController {
      */
     @RequestMapping("/user/updateOutBoard")
     public boolean updateOutBoard(OutBoard outBoard){
+
         return userService.updateOutboard(outBoard);
     }
 
@@ -162,6 +160,7 @@ public class UserInfoController {
      */
     @RequestMapping("/user/updateFlowPartyer")
     public boolean updateFlowPartyer(FlowPartyer flowPartyer){
+
         return userService.updateFlowPartyer(flowPartyer);
     }
 
@@ -172,6 +171,73 @@ public class UserInfoController {
      */
     @RequestMapping("/user/updatePoorPartyer")
     public boolean updatePoorPartyer(PoorPartyer poorPartyer){
+
         return userService.updatePoorPartyer(poorPartyer);
+    }
+
+    /**
+     * 根据id查询信息
+     * @param userName
+     * @return
+     */
+    @RequestMapping("/user/getTechDuty")
+    public List<TechDuty> getTechDuty(String userName){
+
+        return userService.selectTechDutyByUserName(userName);
+    }
+
+    /**
+     * 根据id查询教育信息
+     * @param userName
+     * @return
+     */
+    @RequestMapping("/user/getEduDegree")
+    public List<EduDegree> getEduDegree(String userName){
+
+        return userService.selectEduDegreeByUserName(userName);
+    }
+
+    /**
+     * 根据id查询工作信息
+     * @param userName
+     * @return
+     */
+    @RequestMapping("/user/getJobStation")
+    public List<JobStation> getJobStation(String userName){
+
+        return userService.selectJobStationByUserName(userName);
+    }
+
+    /**
+     * 根据id查询得奖信息
+     * @param userName
+     * @return
+     */
+    @RequestMapping("/user/getRewardPunish")
+    public List<RewardPunish> getRewardPunish(String userName){
+
+        return userService.selectRewardPunishByUserName(userName);
+    }
+
+    /**
+     * 根据id查询评议信息
+     * @param userName
+     * @return
+     */
+    @RequestMapping("/user/getDemoMeet")
+    public List<DemoMeet> getDemoMeet(String userName){
+
+        return userService.selectDemoMeetByUserName(userName);
+    }
+
+    /**
+     * 根据id查询任职信息
+     * @param userName
+     * @return
+     */
+    @RequestMapping("/user/getPartyDuty")
+    public List<PartyDuty> getPartyDuty(String userName){
+
+        return userService.selectPartyDutyByUserName(userName);
     }
 }

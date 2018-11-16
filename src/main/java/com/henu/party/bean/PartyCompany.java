@@ -112,7 +112,6 @@ public class PartyCompany {
 
 	public PartyCompany() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
