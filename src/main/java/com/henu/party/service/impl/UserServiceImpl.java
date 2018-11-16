@@ -1,10 +1,7 @@
 package com.henu.party.service.impl;
 
-import com.henu.party.bean.FlowPartyer;
-import com.henu.party.bean.OutBoard;
-import com.henu.party.bean.PoorPartyer;
-import com.henu.party.bean.UserInfo;
-import com.henu.party.mapper.UserInfoMapper;
+import com.henu.party.bean.*;
+import com.henu.party.mapper.*;
 import com.henu.party.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +17,16 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     public UserInfoMapper userInfoMapper;
+    @Autowired
+    public TechdutyMapper techdutyMapper;
+    @Autowired
+    public DemomeetMapper demomeetMapper;
+    @Autowired
+    public EduDegreeMapper eduDegreeMapper;
+    @Autowired
+    public JobStationMapper jobStationMapper;
+    @Autowired
+    public RewardPunishMapper rewardPunishMapper;
 
     /**
      * 根据主键查询实例
@@ -126,6 +133,57 @@ public class UserServiceImpl implements UserService {
     @Override
     public PoorPartyer getPoorPartyer(String userName) {
         return userInfoMapper.selectPoorPartyerByUserName(userName);
+    }
+
+    @Override
+    public boolean updateOutboard(OutBoard outBoard) {
+        if(outBoard!=null)
+            userInfoMapper.updateOutboard(outBoard);
+        return true;
+    }
+
+    @Override
+    public boolean updateFlowPartyer(FlowPartyer flowPartyer) {
+        if(flowPartyer!=null)
+            userInfoMapper.updateFlowPartyer(flowPartyer);
+        return true;
+    }
+
+    @Override
+    public boolean updatePoorPartyer(PoorPartyer poorPartyer) {
+        if(poorPartyer!=null)
+            userInfoMapper.updatePoorPartyer(poorPartyer);
+        return true;
+    }
+
+    @Override
+    public List<TechDuty> selectTechDutyByUserName(String userName) {
+
+        return techdutyMapper.selectByUserName(userName);
+    }
+
+    @Override
+    public List<EduDegree> selectEduDegreeByUserName(String userName) {
+
+        return eduDegreeMapper.selectByUserName(userName);
+    }
+
+    @Override
+    public List<JobStation> selectJobStationByUserName(String userName) {
+
+        return jobStationMapper.selectByUserName(userName);
+    }
+
+    @Override
+    public List<RewardPunish> selectRewardPunishByUserName(String userName) {
+
+        return rewardPunishMapper.selectByUserName(userName);
+    }
+
+    @Override
+    public List<DemoMeet> selectDemoMeetByUserName(String userName) {
+
+        return demomeetMapper.selectByUserName(userName);
     }
 
 

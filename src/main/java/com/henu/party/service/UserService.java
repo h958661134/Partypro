@@ -1,9 +1,6 @@
 package com.henu.party.service;
 
-import com.henu.party.bean.FlowPartyer;
-import com.henu.party.bean.OutBoard;
-import com.henu.party.bean.PoorPartyer;
-import com.henu.party.bean.UserInfo;
+import com.henu.party.bean.*;
 
 import java.util.List;
 
@@ -55,7 +52,40 @@ public interface UserService {
 
     public boolean updateUserInfo(UserInfo userInfo);
 
+    /**
+     * 返回出国状态
+     * @param userName
+     * @return
+     */
     public OutBoard getOutboard(String userName);
+
+    /**
+     * 返回党员流动
+     * @param userName
+     * @return
+     */
     public FlowPartyer getFlowPartyer(String userName);
+
+    /**
+     * 返回党员贫困信息
+     * @param userName
+     * @return
+     */
     public PoorPartyer getPoorPartyer(String userName);
+
+    public boolean updateOutboard(OutBoard outBoard);
+
+    public boolean updateFlowPartyer(FlowPartyer flowPartyer);
+
+    public boolean updatePoorPartyer(PoorPartyer poorPartyer);
+
+    public List<TechDuty> selectTechDutyByUserName(String userName);
+
+    public List<EduDegree> selectEduDegreeByUserName(String userName);
+
+    public List<JobStation> selectJobStationByUserName(String userName);
+
+    public List<RewardPunish> selectRewardPunishByUserName(String userName);
+
+    public List<DemoMeet> selectDemoMeetByUserName(String userName);
 }

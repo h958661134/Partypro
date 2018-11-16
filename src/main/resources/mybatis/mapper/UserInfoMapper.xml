@@ -169,7 +169,7 @@
 			touchCondition=#{touchCondition},
 			repatriateCondition=#{repatriateCondition},
 			repatriateDate=#{repatriateDate}
-		WHERE userName=#{username}
+		WHERE userName=#{userName}
 	</update>
 
 	<update id="updateFlowPartyer">
@@ -181,11 +181,11 @@
 			flowUnit=#{flowUnit},
 			flowDate=#{flowDate},
 			outOfContacts=#{outOfContacts},
-			outOfContactway=#{outOfContactway},
+			outOfContactway=#{outOfcontactway},
 			inFlowContacts=#{inFlowContacts},
 			inContactway=#{inContactway},
 			touchCondition=#{touchCondition}
-		WHERE userName=#{username}
+		WHERE userName=#{userName}
 	</update>
 
 	<update id="updatePoorPartyer">
@@ -195,7 +195,7 @@
 			healthCondition=#{healthCondition},
 			poorPartSubsidy=#{poorPartSubsidy},
 			otherSubsidy=#{otherSubsidy}
-		WHERE userName=#{username}
+		WHERE userName=#{userName}
 	</update>
 
 

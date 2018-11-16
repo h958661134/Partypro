@@ -144,4 +144,34 @@ public class UserInfoController {
 
         return userService.getPoorPartyer(userName);
     }
+
+    /**
+     * 更新出国数据
+     * @param outBoard 出国信息
+     * @return
+     */
+    @RequestMapping("/user/updateOutBoard")
+    public boolean updateOutBoard(OutBoard outBoard){
+        return userService.updateOutboard(outBoard);
+    }
+
+    /**
+     * 更新党员流动
+     * @param flowPartyer 流动信息
+     * @return
+     */
+    @RequestMapping("/user/updateFlowPartyer")
+    public boolean updateFlowPartyer(FlowPartyer flowPartyer){
+        return userService.updateFlowPartyer(flowPartyer);
+    }
+
+    /**
+     * 更新贫穷信息
+     * @param poorPartyer 贫穷信息
+     * @return
+     */
+    @RequestMapping("/user/updatePoorPartyer")
+    public boolean updatePoorPartyer(PoorPartyer poorPartyer){
+        return userService.updatePoorPartyer(poorPartyer);
+    }
 }
