@@ -3,7 +3,7 @@ package com.henu.party.bean;
 public class PartyDuty {
 	private String num;
 	private String userName;
-	private String SPO;
+	private String spo;
 	private String serviceOg;
 	private String jobName;
 	private String appDate;
@@ -27,12 +27,12 @@ public class PartyDuty {
 		this.userName = userName;
 	}
 
-	public String getSPO() {
-		return SPO;
+	public String getspo() {
+		return spo;
 	}
 
-	public void setSPO(String sPO) {
-		SPO = sPO;
+	public void setspo(String sPO) {
+		spo = sPO;
 	}
 
 	public String getServiceOg() {
@@ -88,7 +88,7 @@ public class PartyDuty {
 		super();
 		this.num = num;
 		this.userName = userName;
-		SPO = sPO;
+		spo = sPO;
 		this.serviceOg = serviceOg;
 		this.jobName = jobName;
 		this.appDate = appDate;
@@ -104,7 +104,7 @@ public class PartyDuty {
 
 	@Override
 	public String toString() {
-		return "PartyDuty [num=" + num + ", userName=" + userName + ", SPO=" + SPO + ", serviceOg=" + serviceOg
+		return "PartyDuty [num=" + num + ", userName=" + userName + ", SPO=" + spo + ", serviceOg=" + serviceOg
 				+ ", jobName=" + jobName + ", appDate=" + appDate + ", remDate=" + remDate + ", mainDuties="
 				+ mainDuties + ", teamMembers=" + teamMembers + "]";
 	}

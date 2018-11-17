@@ -5,11 +5,11 @@
 
     <insert id="insert" parameterType="com.henu.party.bean.PartyDuty">
         INSERT INTO tb_partyduty(
-          userName,SPO,serviceOg,
+          userName,spo,serviceOg,
           jobName,appDate,remDate,
           mainDuties,teamMembers
         ) VALUES(
-          #{userName},#{SPO},#{serviceOg},
+          #{userName},#{spo},#{serviceOg},
           #{jobName},#{appDate},#{remDate},#{mainDuties},#{teamMembers}
         )
     </insert>
@@ -26,7 +26,7 @@
     <update id="update" parameterType="com.henu.party.bean.PartyDuty">
         UPDATE tb_partyduty SET
           userName=#{userName},
-          SPO=#{SPO},
+          spo=#{spo},
           serviceOg=#{serviceOg},
           jobName=#{jobName},
           appDate=#{appDate},

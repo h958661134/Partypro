@@ -126,4 +126,39 @@ public interface UserService {
      * @param num 表中主键参数名
      */
     public void deletePartyDutyByNum(int num);
+
+    /**
+     * 更新职务信息
+     * @param techDuty 职务信息实体类
+     */
+    public void insertTechDuty(TechDuty techDuty);
+
+
+    public void updateEduDegree(EduDegree eduDegree);
+
+    public void updatePartyDuty(PartyDuty partyDuty);
+
+    public void updateJobStation(JobStation jobStation);
+
+    public void updateRewardPunish(RewardPunish rewardPunish);
+
+    public void updateDemoMeet(DemoMeet demoMeet);
+
+    /**
+     * 向表中增加职务信息
+     * @param techDuty 职务信息实体类
+     */
+    public void updateTechDuty(TechDuty techDuty);
+
+    public void insertEduDegree(EduDegree eduDegree);
+
+    public void insertPartyDuty(PartyDuty partyDuty);
+
+    public void insertJobStation(JobStation jobStation);
+
+    public void insertRewardPunish(RewardPunish rewardPunish);
+
+    public void insertDemoMeet(DemoMeet demoMeet);
+
+
 }

@@ -19,13 +19,13 @@
     <update id="update" parameterType="com.henu.party.bean.EduDegree">
         UPDATE tb_edudegree SET
         userName=#{userName},
-        eduSector#{eduSector},
-        edu#{edu},
-        enDate#{enDate},
-        gradDate#{gradDate},
-        acaDegree#{acaDegree},
-        dcDate#{dcDate},
-        graduate#{graduate}
+        eduSector=#{eduSector},
+        edu=#{edu},
+        enDate=#{enDate},
+        gradDate=#{gradDate},
+        acaDegree=#{acaDegree},
+        dcDate=#{dcDate},
+        graduate=#{graduate}
     </update>
 
     <select id="selectByUserName" parameterType="java.lang.String" resultType="com.henu.party.bean.EduDegree">

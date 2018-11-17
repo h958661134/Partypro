@@ -259,5 +259,75 @@ public class UserServiceImpl implements UserService {
         partyDutyMapper.delete(num);
     }
 
+    /**
+     * 更新职务信息
+     *
+     * @param techDuty 职务信息实体类
+     */
+    @Override
+    public void insertTechDuty(TechDuty techDuty) {
+        techdutyMapper.insert(techDuty);
+    }
+
+    @Override
+    public void updateEduDegree(EduDegree eduDegree) {
+        eduDegreeMapper.update(eduDegree);
+    }
+
+    @Override
+    public void updatePartyDuty(PartyDuty partyDuty) {
+        partyDutyMapper.update(partyDuty);
+    }
+
+    @Override
+    public void updateJobStation(JobStation jobStation) {
+        jobStationMapper.update(jobStation);
+    }
+
+    @Override
+    public void updateRewardPunish(RewardPunish rewardPunish) {
+        rewardPunishMapper.update(rewardPunish);
+    }
+
+    @Override
+    public void updateDemoMeet(DemoMeet demoMeet) {
+        demomeetMapper.update(demoMeet);
+    }
+
+    /**
+     * 向表中增加职务信息
+     *
+     * @param techDuty 职务信息实体类
+     */
+    @Override
+    public void updateTechDuty(TechDuty techDuty) {
+        techdutyMapper.update(techDuty);
+    }
+
+    @Override
+    public void insertEduDegree(EduDegree eduDegree) {
+        eduDegreeMapper.insert(eduDegree);
+    }
+
+    @Override
+    public void insertPartyDuty(PartyDuty partyDuty) {
+        partyDutyMapper.insert(partyDuty);
+    }
+
+    @Override
+    public void insertJobStation(JobStation jobStation) {
+        jobStationMapper.insert(jobStation);
+    }
+
+    @Override
+    public void insertRewardPunish(RewardPunish rewardPunish) {
+        rewardPunishMapper.insert(rewardPunish);
+    }
+
+    @Override
+    public void insertDemoMeet(DemoMeet demoMeet) {
+        demomeetMapper.insert(demoMeet);
+    }
+
 
 }

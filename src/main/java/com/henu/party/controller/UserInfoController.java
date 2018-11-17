@@ -297,5 +297,71 @@ public class UserInfoController {
         userService.deletePartyDutyByNum(num);
     }
 
+    /**
+     * 插入技术信息
+     * @param techDuty 技术信息实体
+     */
+    @RequestMapping("/user/updateTechDuty")
+    public void updateTechDuty(TechDuty techDuty){
+        userService.updateTechDuty(techDuty);
+    }
+
+    @RequestMapping("/user/updateEduDegree")
+    public void updateEduDegree(EduDegree eduDegree){
+        userService.updateEduDegree(eduDegree);
+    }
+
+    @RequestMapping("/user/updatePartyDuty")
+    public void updatePartyDuty(PartyDuty partyDuty){
+        userService.updatePartyDuty(partyDuty);
+    }
+
+    @RequestMapping("/user/updateJobStation")
+    public void updateJobStation(JobStation JobStation){
+        userService.updateJobStation(JobStation);
+    }
+
+    @RequestMapping("/user/updateRewardPunish")
+    public void updateRewardPunish(RewardPunish rewardPunish){
+        userService.updateRewardPunish(rewardPunish);
+    }
+
+    @RequestMapping("/user/updateDemoMeet")
+    public void updateDemoMeet(DemoMeet demoMeet){
+        userService.updateDemoMeet(demoMeet);
+    }
+
+    /**
+     * 更新技术信息
+     * @param techDuty 技术信息实体
+     */
+    @RequestMapping("/user/insertTechDuty")
+    public void insertTechDuty(TechDuty techDuty){
+        userService.insertTechDuty(techDuty);
+    }
+    @RequestMapping("/user/insertEduDegree")
+    public void insertEduDegree(EduDegree eduDegree){
+        userService.insertEduDegree(eduDegree);
+    }
+
+    @RequestMapping("/user/insertPartyDuty")
+    public void insertPartyDuty(PartyDuty partyDuty){
+        userService.insertPartyDuty(partyDuty);
+    }
+
+    @RequestMapping("/user/insertRewardPunish")
+    public void insertRewardPunish(RewardPunish rewardPunish){
+        userService.insertRewardPunish(rewardPunish);
+    }
+
+    @RequestMapping("/user/insertDemoMeet")
+    public void insertDemoMeet(DemoMeet demoMeet){
+        userService.insertDemoMeet(demoMeet);
+    }
+
+    @RequestMapping("/user/insertJobStation")
+    public void insertJobStation(JobStation jobStation){
+        userService.insertJobStation(jobStation);
+    }
 
 }

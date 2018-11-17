@@ -131,7 +131,7 @@
                                 <label class="layui-form-label">民族</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="nation" placeholder="" autocomplete="off" class="layui-input"
-                                        value="软件学院">
+                                        value="">
                                 </div>
                             </div>
 
@@ -639,7 +639,7 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">回国日期</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="repatriateDate" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                                <input type="text" name="repatriateDate" placeholder="" autocomplete="off" class="layui-input" value="">
                             </div>
                         </div>
                         <div class="layui-form-item">
@@ -663,54 +663,61 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">教育类别</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="eduSector" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">学历</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="edu" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">入学时间</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="enDate" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">毕业日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="gradDate" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">学位</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="acaDegree" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">学位授予日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="dcDate" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">毕业院校</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="graduate" placeholder="" autocomplete="off" class="layui-input" value="">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: none">
+                <label class="layui-form-label">id</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="num" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-input-block" style="float:right;margin-right:3%">
-                <a class="layui-btn" lay-submit lay-filter="formDemo">立即提交</a>
+                <a class="layui-btn" id="EduDegreeBtn" lay-submit lay-filter="SubmitEduDegree">立即提交</a>
                 <a type="reset" class="layui-btn layui-btn-primary">重置</a>
             </div>
         </form>
@@ -721,40 +728,47 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">开始日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="startDate" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">结束日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="endDate" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">工作岗位</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="post" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">一线情况</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="firstLineSituation" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">主要岗位</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="mainPost" placeholder="" autocomplete="off" class="layui-input" value="">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: none">
+                <label class="layui-form-label">id</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="num" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-input-block" style="float:right;margin-right:3%">
-                <a class="layui-btn" lay-submit lay-filter="formDemo">立即提交</a>
+                <a class="layui-btn" id="JobStationBtn" lay-submit lay-filter="submitJobStation">立即提交</a>
                 <a type="reset" class="layui-btn layui-btn-primary">重置</a>
             </div>
         </form>
@@ -765,54 +779,61 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">任职党组织</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="spo" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">任职机构</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="serviceOg" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">职务名称</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="jobName" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">批准任职日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="appDate" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">批准免职日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="remDate" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">主要职务</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="mainDuties" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">班子成员</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="teamMembers" placeholder="" autocomplete="off" class="layui-input" value="">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: none">
+                <label class="layui-form-label">id</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="num" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-input-block" style="float:right;margin-right:3%">
-                <a class="layui-btn" lay-submit lay-filter="formDemo">立即提交</a>
+                <a class="layui-btn" id="PartyDutyBtn" lay-submit lay-filter="submitPartyDuty">立即提交</a>
                 <a type="reset" class="layui-btn layui-btn-primary">重置</a>
             </div>
         </form>
@@ -823,40 +844,54 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">专业技术资格</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="techTitle" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">获得资格日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="getTime" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">专业技术职务</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="techPosition" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">聘任起始日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="startTime" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">聘任终止日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="endTime" placeholder="" autocomplete="off" class="layui-input" value="">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">主要职务</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="mainDuty" placeholder="" autocomplete="off" class="layui-input" value="">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: none">
+                <label class="layui-form-label">id</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="num" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-input-block" style="float:right;margin-right:3%">
-                <a class="layui-btn" lay-submit lay-filter="formDemo">立即提交</a>
+                <a class="layui-btn" lay-submit lay-filter="TechDutySubmit" id="TechDutyBtn">立即提交</a>
                 <a type="reset" class="layui-btn layui-btn-primary">重置</a>
             </div>
         </form>
@@ -867,54 +902,61 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">奖惩名称</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="name" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">奖惩说明</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="explanation" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">奖惩原因</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="reason" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">批准机关</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="appAuthority" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">批准机关级别</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="appAuthLevel" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">批准日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="ratiTime" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">撤销日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="revoTime" placeholder="" autocomplete="off" class="layui-input" value="">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: none">
+                <label class="layui-form-label">id</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="num" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-input-block" style="float:right;margin-right:3%">
-                <a class="layui-btn" lay-submit lay-filter="formDemo">立即提交</a>
+                <a class="layui-btn" id="rewardpunishBtn" lay-submit lay-filter="SubmitRewardPunish">立即提交</a>
                 <a type="reset" class="layui-btn layui-btn-primary">重置</a>
             </div>
         </form>
@@ -925,40 +967,47 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">评议开始日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="startTime" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">评议结束日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="endTime" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">评议结束</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="result" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">评议奖惩</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="rewardPunish" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">评议奖惩说明</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" placeholder="" autocomplete="off" class="layui-input" value="软件学院">
+                    <input type="text" name="rewardPunishReason" placeholder="" autocomplete="off" class="layui-input" value="">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: none">
+                <label class="layui-form-label">id</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="num" placeholder="" autocomplete="off" class="layui-input" value="">
                 </div>
             </div>
 
             <div class="layui-input-block" style="float:right;margin-right:3%">
-                <a class="layui-btn" lay-submit lay-filter="formDemo">立即提交</a>
+                <a class="layui-btn" id="demoMeetBtn" lay-submit lay-filter="SubmitDemoMeet">立即提交</a>
                 <a type="reset" class="layui-btn layui-btn-primary">重置</a>
             </div>
         </form>
@@ -1019,6 +1068,135 @@
                     type: 1,
                     area: ['50%', '54%'],
                     content: $('#msgg5')
+                })
+            })
+
+            $('#reset1').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '70%'],
+                    content: $('#msgg'),
+                    success:function () {
+                        var checkStatus = table.checkStatus('id'); //id 即为基础参数 id 对应的值
+                        var data = checkStatus.data[0]
+                        $('#EduDegreeBtn').attr("lay-filter","updateEduDegree")
+
+                        $('#msgg').find('input').each(function () {
+                            var that = $(this)
+                            var name = that.attr("name")
+                            if(data[name]){
+                                that.val(data[name])
+                            }
+                        })
+                    }
+                })
+            })
+
+            $('#reset2').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '54%'],
+                    content: $('#msgg1'),
+                    success:function () {
+                        var checkStatus = table.checkStatus('id1'); //id 即为基础参数 id 对应的值
+                        var data = checkStatus.data[0]
+                        $('#JobStationBtn').attr("lay-filter","updateJobStation")
+
+                        $('#msgg1').find('input').each(function () {
+                            var that = $(this)
+                            var name = that.attr("name")
+                            if(data[name]){
+                                that.val(data[name])
+                            }
+                        })
+                    }
+                })
+            })
+
+            $('#reset3').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '70%'],
+                    content: $('#msgg2'),
+                    success:function () {
+                        var checkStatus = table.checkStatus('id2'); //id 即为基础参数 id 对应的值
+                        var data = checkStatus.data[0]
+                        console.log(data)
+                        $('#PartyDutyBtn').attr("lay-filter","updatePartyDuty")
+
+                        $('#msgg2').find('input').each(function () {
+                            var that = $(this)
+                            var name = that.attr("name")
+                            if(data[name]){
+                                that.val(data[name])
+                            }
+                        })
+                    }
+                })
+            })
+
+
+            $('#reset4').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '54%'],
+                    content: $('#msgg3'),
+                    success:function () {
+                        var checkStatus = table.checkStatus('id3'); //id 即为基础参数 id 对应的值
+                        var data = checkStatus.data[0]
+                        $('#TechDutyBtn').attr("lay-filter","updateTechDuty")
+
+                        $('#msgg3').find('input').each(function () {
+                            var that = $(this)
+                            var name = that.attr("name")
+                            if(data[name]){
+                                that.val(data[name])
+                            }
+                        })
+
+                    }
+                })
+            })
+
+            $('#reset5').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '70%'],
+                    content: $('#msgg4'),
+                    success:function () {
+                        var checkStatus = table.checkStatus('id4'); //id 即为基础参数 id 对应的值
+                        var data = checkStatus.data[0]
+                        $('#rewardpunishBtn').attr("lay-filter","updateRewardPunish")
+
+                        $('#msgg4').find('input').each(function () {
+                            var that = $(this)
+                            var name = that.attr("name")
+                            if(data[name]){
+                                that.val(data[name])
+                            }
+                        })
+                    }
+                })
+            })
+
+            $('#reset6').click(function () {
+                layer.open({
+                    type: 1,
+                    area: ['50%', '54%'],
+                    content: $('#msgg5'),
+                    success:function () {
+                        var checkStatus = table.checkStatus('id5'); //id 即为基础参数 id 对应的值
+                        var data = checkStatus.data[0]
+                        $('#demoMeetBtn').attr("lay-filter","updateDemoMeet")
+
+                        $('#msgg5').find('input').each(function () {
+                            var that = $(this)
+                            var name = that.attr("name")
+                            if(data[name]){
+                                that.val(data[name])
+                            }
+                        })
+                    }
                 })
             })
 
@@ -1223,7 +1401,115 @@
                 })
                 return false;
             });
+
+            form.on('submit(TechDutySubmit)',function (data) {
+                    data.field.userName=TheuserId
+                    console.log(TheuserId)
+                    console.log(data.field)
+                    $.post('/party/user/insertTechDuty',data.field,function () {
+                        layer.msg('添加成功')
+                    })
+            })
+
+            form.on('submit(updateTechDuty)',function (data) {
+                    data.field.userName=TheuserId
+                    console.log(TheuserId)
+                    console.log(data.field)
+                $.post('/party/user/updateTechDuty',data.field,function () {
+                        layer.msg('修改成功')
+                    })
+                })
         });
+
+            form.on('submit(SubmitEduDegree)',function (data) {
+                data.field.userName=TheuserId
+                console.log(TheuserId)
+                console.log(data.field)
+                $.post('/party/user/insertEduDegree',data.field,function () {
+                    layer.msg('添加成功')
+                })
+            })
+
+            form.on('submit(updateEduDegree)',function (data) {
+                data.field.userName=TheuserId
+                console.log(TheuserId)
+                console.log(data.field)
+                $.post('/party/user/updateEduDegree',data.field,function () {
+                    layer.msg('修改成功')
+                })
+            })
+
+            form.on('submit(submitJobStation)',function (data) {
+                data.field.userName=TheuserId
+                console.log(TheuserId)
+                console.log(data.field)
+                $.post('/party/user/insertJobStation',data.field,function () {
+                    layer.msg('添加成功')
+                })
+            })
+
+            form.on('submit(updateJobStation)',function (data) {
+                data.field.userName=TheuserId
+                console.log(TheuserId)
+                console.log(data.field)
+                $.post('/party/user/updateJobStation',data.field,function () {
+                    layer.msg('修改成功')
+                })
+            })
+
+            form.on('submit(submitPartyDuty)',function (data) {
+                data.field.userName=TheuserId
+                console.log(TheuserId)
+                console.log(data.field)
+                $.post('/party/user/insertPartyDuty',data.field,function () {
+                    layer.msg('添加成功')
+                })
+            })
+
+            form.on('submit(updatePartyDuty)',function (data) {
+                data.field.userName=TheuserId
+                console.log(TheuserId)
+                console.log(data.field)
+                $.post('/party/user/updatePartyDuty',data.field,function () {
+                    layer.msg('修改成功')
+                })
+            })
+
+            form.on('submit(SubmitRewardPunish)',function (data) {
+                data.field.userName=TheuserId
+                console.log(TheuserId)
+                console.log(data.field)
+                $.post('/party/user/insertRewardPunish',data.field,function () {
+                    layer.msg('添加成功')
+                })
+            })
+
+            form.on('submit(updateRewardPunish)',function (data) {
+                data.field.userName=TheuserId
+                console.log(TheuserId)
+                console.log(data.field)
+                $.post('/party/user/updateRewardPunish',data.field,function () {
+                    layer.msg('修改成功')
+                })
+            })
+
+            form.on('submit(SubmitDemoMeet)',function (data) {
+                data.field.userName=TheuserId
+                console.log(TheuserId)
+                console.log(data.field)
+                $.post('/party/user/insertDemoMeet',data.field,function () {
+                    layer.msg('添加成功')
+                })
+            })
+
+            form.on('submit(updateDemoMeet)',function (data) {
+                data.field.userName=TheuserId
+                console.log(TheuserId)
+                console.log(data.field)
+                $.post('/party/user/updateDemoMeet',data.field,function () {
+                    layer.msg('修改成功')
+                })
+            })
 
             $('#PartyMember').click(function () {
                 $.post("/party/user/SelectByInfo",{"type":"党员"},function (data) {
@@ -1452,39 +1738,39 @@
                                 type: 'checkbox',
                                 width: "5%",
                             }, {
-                            field: 'PartyName',
+                            field: 'spo',
                             title: '任职党组织',
                             width: "15%",
                             align: "center"
 
                         }, {
-                            field: 'PartyId',
+                            field: 'serviceOg',
                             title: '任职机构',
                             width: "10%",
                             align: "center"
 
                         }, {
-                            field: 'PartyType',
+                            field: 'jobName',
                             title: '职务名称',
                             width: "10%",
                             align: "center"
                         }, {
-                            field: 'EndDate',
+                            field: 'appDate',
                             title: '批准任职日期',
                             width: "14.5%",
                             align: "center"
                         }, {
-                            field: 'CreateDate',
+                            field: 'remDate',
                             title: '批准免职日期',
                             width: "15%",
                             align: "center"
                         }, {
-                            field: 'PartyAddress',
+                            field: 'mainDuties',
                             title: '主要职务',
                             width: "15%",
                             align: "center"
                         }, {
-                            field: 'UserName',
+                            field: 'teamMembers',
                             title: '班子成员',
                             width: "15%",
                             align: "center"
