@@ -17,6 +17,6 @@ public interface EduDegreeMapper {
     //更新
     public void update(EduDegree eduDegree);
     //删除
-    public void deleteByNum(String UserName,String status);
+    public void deleteByNum(int num);
 
 }

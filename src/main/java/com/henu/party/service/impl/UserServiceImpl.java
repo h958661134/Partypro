@@ -17,16 +17,22 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     public UserInfoMapper userInfoMapper;
+
     @Autowired
     public TechdutyMapper techdutyMapper;
+
     @Autowired
     public DemomeetMapper demomeetMapper;
+
     @Autowired
     public EduDegreeMapper eduDegreeMapper;
+
     @Autowired
     public JobStationMapper jobStationMapper;
+
     @Autowired
     public RewardPunishMapper rewardPunishMapper;
+
     @Autowired
     public PartyDutyMapper partyDutyMapper;
 
@@ -191,6 +197,66 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<PartyDuty> selectPartyDutyByUserName(String username) {
         return partyDutyMapper.selectByUserName(username);
+    }
+
+    /**
+     * 根据表中主键删除对应数据项
+     *
+     * @param num 表中主键参数名
+     */
+    @Override
+    public void deleteTechDutyByNum(int num) {
+        techdutyMapper.deleteByNum(num);
+    }
+
+    /**
+     * 根据表中主键删除对应数据项
+     *
+     * @param num 表中主键参数名
+     */
+    @Override
+    public void deleteEduDegreeByNum(int num) {
+        eduDegreeMapper.deleteByNum(num);
+    }
+
+    /**
+     * 根据表中主键删除对应数据项
+     *
+     * @param num 表中主键参数名
+     */
+    @Override
+    public void deleteJobStationByNum(int num) {
+        jobStationMapper.delectByNum(num);
+    }
+
+    /**
+     * 根据表中主键删除对应数据项
+     *
+     * @param num 表中主键参数名
+     */
+    @Override
+    public void deleteDemoMeetByNum(int num) {
+        demomeetMapper.deleteByNum(num);
+    }
+
+    /**
+     * 根据表中主键删除对应数据项
+     *
+     * @param num 表中主键参数名
+     */
+    @Override
+    public void deleteRewardPunishByNum(int num) {
+        rewardPunishMapper.deleteByNum(num);
+    }
+
+    /**
+     * 根据表中主键删除对应数据项
+     *
+     * @param num 表中主键参数名
+     */
+    @Override
+    public void deletePartyDutyByNum(int num) {
+        partyDutyMapper.delete(num);
     }
 
 

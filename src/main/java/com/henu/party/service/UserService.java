@@ -90,4 +90,40 @@ public interface UserService {
     public List<DemoMeet> selectDemoMeetByUserName(String userName);
 
     public List<PartyDuty> selectPartyDutyByUserName(String username);
+
+    /**
+     * 根据表中主键删除对应数据项
+     * @param num 表中主键参数名
+     */
+    public void deleteTechDutyByNum(int num);
+
+    /**
+     * 根据表中主键删除对应数据项
+     * @param num 表中主键参数名
+     */
+    public void deleteEduDegreeByNum(int num);
+
+    /**
+     根据表中主键删除对应数据项
+     * @param num 表中主键参数名
+     */
+    public void deleteJobStationByNum(int num);
+
+    /**
+     根据表中主键删除对应数据项
+     * @param num 表中主键参数名
+     */
+    public void deleteDemoMeetByNum(int num);
+
+    /**
+     根据表中主键删除对应数据项
+     * @param num 表中主键参数名
+     */
+    public void deleteRewardPunishByNum(int num);
+
+    /**
+     根据表中主键删除对应数据项
+     * @param num 表中主键参数名
+     */
+    public void deletePartyDutyByNum(int num);
 }

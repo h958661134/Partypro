@@ -13,7 +13,7 @@ public interface DemomeetMapper {
     //增
     public void insert(DemoMeet demoMeet);
     //删除
-    public void delectByNum(int num);
+    public void deleteByNum(int num);
     //改
     public void update(DemoMeet demoMeet);
     //查

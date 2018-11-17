@@ -2,6 +2,7 @@ package com.henu.party.controller;
 
 import com.henu.party.bean.*;
 import com.henu.party.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * @Description:
+ * @Description: 用户信息管理Controller
  * @Author: YangWuXin
  * @Date: 2018/11/9 16:01
  */
@@ -176,7 +177,7 @@ public class UserInfoController {
     }
 
     /**
-     * 根据id查询信息
+     * 根据id查询技术信息
      * @param userName
      * @return
      */
@@ -240,4 +241,61 @@ public class UserInfoController {
 
         return userService.selectPartyDutyByUserName(userName);
     }
+
+    /**
+     * 根据num删除技术信息
+     * @param num
+     */
+    @RequestMapping("/user/deleteTechDuty")
+    public void deleteTechDuty(int num){
+        userService.deleteTechDutyByNum(num);
+    }
+
+    /**
+     * 根据num删除教育信息
+     * @param num
+     */
+    @RequestMapping("/user/deleteEduDegree")
+    public void deleteEduDegree(@Param("num") Integer num){
+        System.out.println(num);
+        userService.deleteEduDegreeByNum(num);
+    }
+
+    /**
+     * 根据num删除工作信息
+     * @param num
+     */
+    @RequestMapping("/user/deleteJobStation")
+    public void deleteJobStation(int num){
+        userService.deleteJobStationByNum(num);
+    }
+
+    /**
+     * 根据num删除得奖信息
+     * @param num
+     */
+    @RequestMapping("/user/deleteRewardPunish")
+    public void deleteRewardPunish(int num){
+        userService.deleteRewardPunishByNum(num);
+    }
+
+    /**
+     * 根据num删除评议信息
+     * @param num
+     */
+    @RequestMapping("/user/deleteDemoMeet")
+    public void deleteDemoMeet(int num){
+        userService.deleteDemoMeetByNum(num);
+    }
+
+    /**
+     * 根据num删除任职信息
+     * @param num
+     */
+    @RequestMapping("/user/deletePartyDuty")
+    public void deletePartyDuty(int num){
+        userService.deletePartyDutyByNum(num);
+    }
+
+
 }

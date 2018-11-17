@@ -14,7 +14,7 @@
         )
     </insert>
 
-    <delete id="delectByNum" parameterType="int">
+    <delete id="deleteByNum" parameterType="int">
         DELETE  FROM tb_rewardpunish  WHERE num=#{num}
     </delete>
 
