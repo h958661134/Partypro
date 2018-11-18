@@ -8,6 +8,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="/party/layui/css/layui.css">
     <script src="/party/layui/layui.js"></script>
+    <!--引入 vue 和 element -->
+    <script src="/party/vue/vue.js"></script>
+    <link rel="stylesheet" href="/party/vue/element/index.css">
+    <script src="/party/vue/element/index.js"></script>
 </head>
 <style type="text/css">
     #search {
@@ -25,6 +29,7 @@
 </style>
 
 <body class="layui-layout-body fm-basic" style="">
+<div id="container">
     <form class="layui-form layui-col-md12" action="" style="text-align: center;margin-top: 10px" >
 
         <div class="layui-form-item">
@@ -41,24 +46,23 @@
 
             <div class="layui-col-md6">
                 <form class="layui-form">
-                <div class="layui-input-inline layui-col-md1">
-                    <select name="searchStatus" class="sm-input" lay-verify="required" id="searchStatus">
-                        <option value="">请选择搜索类型</option>
-                        <option value="0">党支部</option>
-                        <option value="1">用户</option>
-                    </select>
-                </div>
-                <div class="layui-input-inline layui-col-md1">
-                    <input type="text" name="selectName" id="selectdata" required lay-verify="required" placeholder="请输入" autocomplete="off"
-                        class="layui-input">
-                </div>
-                <div class="layui-btn-group layui-col-md1">
-                    <a class="layui-btn layui-btn-normal" lay-submit lay-filter="Search" id="Search">搜索</a>
-                </div>
+                    <div class="layui-input-inline layui-col-md1">
+                        <select name="searchStatus" class="sm-input" lay-verify="required" id="searchStatus">
+                            <option value="">请选择搜索类型</option>
+                            <option value="0">党支部</option>
+                            <option value="1">用户</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline layui-col-md1">
+                        <input type="text" name="selectName" id="selectdata" required lay-verify="required" placeholder="请输入" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                    <div class="layui-btn-group layui-col-md1">
+                        <a class="layui-btn layui-btn-normal" lay-submit lay-filter="Search" id="Search">搜索</a>
+                    </div>
                 </form>
                 <div class="layui-btn-group layui-col-md3 aGroup">
-                    <a class="layui-btn layui-btn-normal">增加</a>
-                    <a class="layui-btn layui-btn-normal">删除</a>
+                    <a @click="addParty.addPartyDialog=true" class="layui-btn layui-btn-normal">增加</a>
                 </div>
             </div>
             <div class="layui-col-md12">
@@ -91,7 +95,7 @@
                                 <label class="layui-form-label">用户名</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="userName" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -99,7 +103,7 @@
                                 <label class="layui-form-label">密码</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="password" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -107,7 +111,7 @@
                                 <label class="layui-form-label">入党状态</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="partyState" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -115,7 +119,7 @@
                                 <label class="layui-form-label">姓名</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="name" placeholder="" autocomplete="off" class="layui-input"
-                                        value="学生第一党支部">
+                                           value="学生第一党支部">
                                 </div>
                             </div>
 
@@ -123,7 +127,7 @@
                                 <label class="layui-form-label">性别</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="sex" placeholder="" autocomplete="off" class="layui-input"
-                                        value="党支部">
+                                           value="党支部">
                                 </div>
                             </div>
 
@@ -131,7 +135,7 @@
                                 <label class="layui-form-label">民族</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="nation" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -153,7 +157,7 @@
                                 <label class="layui-form-label">入党日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="partyInDate" placeholder="" autocomplete="off" class="layui-input"
-                                        value="票选">
+                                           value="票选">
                                 </div>
                             </div>
 
@@ -161,7 +165,7 @@
                                 <label class="layui-form-label">列为积极分子日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="activeDate" placeholder="" autocomplete="off" class="layui-input"
-                                        value="100">
+                                           value="100">
                                 </div>
                             </div>
 
@@ -169,7 +173,7 @@
                                 <label class="layui-form-label">申请入党时间</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="applyDate" placeholder="" autocomplete="off" class="layui-input"
-                                        value="100">
+                                           value="100">
                                 </div>
                             </div>
 
@@ -198,7 +202,7 @@
                                 <label class="layui-form-label">身份证号</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="id" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -206,14 +210,14 @@
                                 <label class="layui-form-label">家庭地址</label>
                                 <div class="layui-input-inline">
                                     <input type="email" name="address" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">邮政编码</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="postalcode" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -221,28 +225,28 @@
                                 <label class="layui-form-label">户口所在地派出所</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="policeStation" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">联系电话</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="phone" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">月缴纳党费金额</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="price" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">入党类型</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="partyType" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                         </div>
@@ -251,28 +255,28 @@
                                 <label class="layui-form-label">转正日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="positiveDates" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">转正情况</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="positiveCase" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">进入党支部日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="enterDate" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">进入党支部类型</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="enterType" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -280,7 +284,7 @@
                                 <label class="layui-form-label">工作所在单位</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="workPlace" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -288,7 +292,7 @@
                                 <label class="layui-form-label">所属党支部</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="partyBranch" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -296,7 +300,7 @@
                                 <label class="layui-form-label">入党培养人</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="developPeople" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -304,7 +308,7 @@
                                 <label class="layui-form-label">列为发展对象日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="developDate" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -312,77 +316,77 @@
                                 <label class="layui-form-label">最近党课培训情况</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="partyTrain" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">最近培训日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="trainDate" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">最近培训结果</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="trainResult" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">参加工作日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="timeToWork" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">加入其他党团</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="otherParty" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">加入其他党团日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="oPDate" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">教育类别</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="eduType" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">入学日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="timeInSch" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">毕业日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="timeOutSch" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">学位</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="degree" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">工作岗位开始日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="timeToWork" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -390,14 +394,14 @@
                                 <label class="layui-form-label">一线情况</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="newStatus" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">是否工人</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="isWorker" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                         </div>
@@ -471,7 +475,7 @@
                                 <label class="layui-form-label">流动类型</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="flowStyle" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -479,7 +483,7 @@
                                 <label class="layui-form-label">流动原因</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="flowAccount" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -487,7 +491,7 @@
                                 <label class="layui-form-label">活动证号码</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="activityId" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -495,7 +499,7 @@
                                 <label class="layui-form-label">流出(入)地(单位)</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="flowUnit" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -503,7 +507,7 @@
                                 <label class="layui-form-label">流出(入)日期</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="flowDate" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                         </div>
@@ -512,7 +516,7 @@
                                 <label class="layui-form-label">流出党支部联系人</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="outOfContacts" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -534,7 +538,7 @@
                                 <label class="layui-form-label">流入党支部联系方式</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="inContactway" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
 
@@ -542,7 +546,7 @@
                                 <label class="layui-form-label">与党组织联系情况</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="touchCondition" placeholder="" autocomplete="off" class="layui-input"
-                                        value="">
+                                           value="">
                                 </div>
                             </div>
                         </div>
@@ -655,7 +659,11 @@
     </div>
 
     <script type="text/html" id="ipts">
-        <a class="layui-btn layui-btn-xs" lay-event="detail">详情</a>
+        <div class="layui-btn-group">
+            <a class="layui-btn  layui-btn-xs " lay-event='detail'>详情</a>
+            <a class="layui-btn  layui-btn-xs layui-btn-normal " lay-event='update'>转入</a>
+            <a class="layui-btn  layui-btn-xs layui-btn-danger " lay-event='delete' >删除</a>
+        </div>
     </script>
 
     <div id="msgg" style="display:none">
@@ -1013,7 +1021,319 @@
         </form>
     </div>
 
+    <!--添加党员/非党员等等-->
+    <el-dialog :visible="addParty.addPartyDialog" :fullscreen="true" :show-close="false">
+        <div style="margin: auto;text-align: center;padding-bottom: 20px;">
+            <el-select v-model="addParty.typed" placeholder="请选择" :inline="true" >
+                <el-option
+                        v-for="t in addParty.types"
+                        :label="t.label"
+                        :value="t.value">
+                </el-option>
+            </el-select>
+        </div>
+
+
+        <el-form :model="addParty.userinfo" size="mini" label-width="200px">
+            <el-form-item label="用户名">
+                <el-input v-model="addParty.userinfo.userName" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="密码">
+                <el-input v-model="addParty.userinfo.password" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="姓名">
+                <el-input v-model="addParty.userinfo.name" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="性别">
+                <el-select v-model="addParty.userinfo.sex" placeholder="请选择" size="mini" :inline="true" >
+                    <el-option
+                            v-for="s in ['男','女']"
+                            :label="s"
+                            :value="s">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="出生日期">
+                <el-date-picker
+                        v-model="addParty.userinfo.birthDay"
+                        type="date"
+                        placeholder="选择日期">
+                </el-date-picker>
+            </el-form-item>
+            <el-form-item label="民族">
+                <el-input v-model="addParty.userinfo.nation" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="籍贯">
+                <el-input v-model="addParty.userinfo.nativePlace" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="居民身份证号">
+                <el-input v-model="addParty.userinfo.id" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="户口所在地派出所">
+                <el-input v-model="addParty.userinfo.policeStation" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="参加工作日期">
+                <el-date-picker
+                        v-model="addParty.userinfo.startWork"
+                        type="date"
+                        placeholder="选择日期">
+                </el-date-picker>
+            </el-form-item>
+            <el-form-item label="加入其他党团">
+                <el-input v-model="addParty.otherParty" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="加入其他党团日期">
+                <el-date-picker
+                        v-model="addParty.userinfo.oPDate"
+                        type="date"
+                        placeholder="选择日期">
+                </el-date-picker>
+            </el-form-item>
+            <el-form-item label="家庭住址">
+                <el-input v-model="addParty.userinfo.address" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="邮政编码">
+                <el-input v-model="addParty.userinfo.postalcode" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="联系电话">
+                <el-input v-model="addParty.userinfo.phone" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="月缴纳党费金额(/元)">
+                <el-input v-model="addParty.userinfo.price" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="教育类别">
+                <el-input v-model="addParty.userinfo.eduType" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="学历">
+                <el-input v-model="addParty.userinfo.bestEdu" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="入学日期">
+                <el-date-picker
+                        v-model="addParty.userinfo.timeInSch"
+                        type="date"
+                        placeholder="选择日期">
+                </el-date-picker>
+            </el-form-item>
+            <el-form-item label="毕业日期">
+                <el-date-picker
+                        v-model="addParty.userinfo.timeOutSch"
+                        type="date"
+                        placeholder="选择日期">
+                </el-date-picker>
+            </el-form-item>
+            <el-form-item label="学位">
+                <el-input v-model="addParty.userinfo.degree" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="岗位类型">
+                <el-select v-model="addParty.userinfo.stationType" placeholder="请选择" size="mini" >
+                    <el-option
+                            v-for="t in ['在岗职工','在读学生','离退休人员','其他人员']"
+                            :label="t"
+                            :value="t">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="工作岗位开始日期">
+                <el-date-picker
+                        v-model="addParty.userinfo.timeToWork"
+                        type="date"
+                        placeholder="选择日期">
+                </el-date-picker>
+            </el-form-item>
+            <el-form-item label="岗位名称">
+                <el-input v-model="addParty.userinfo.stationName" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="一线情况">
+                <el-input v-model="addParty.userinfo.newStatus" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="是否工人">
+                <el-radio v-model="addParty.userinfo.isWorker" label="是">是</el-radio>
+                <el-radio v-model="addParty.userinfo.isWorker" label="否">否</el-radio>
+            </el-form-item>
+
+            <template v-if="addParty.typed==='party'">
+                <el-form-item label="入党日期">
+                    <el-date-picker
+                            v-model="addParty.userinfo.partyInDate"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="入党类型">
+                    <el-input v-model="addParty.userinfo.partyType" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="转正日期">
+                    <el-input v-model="addParty.userinfo.positiveDates" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="转正情况">
+                    <el-input v-model="addParty.userinfo.positiveCase" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="进入党支部日期">
+                    <el-date-picker
+                            v-model="addParty.userinfo.enterDate"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="进入党支部类型">
+                    <el-input v-model="addParty.userinfo.enterType" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="工作所在单位">
+                    <el-input v-model="addParty.userinfo.workPlace" autocomplete="off"></el-input>
+                </el-form-item>
+            </template>
+
+            <template v-if="addParty.typed==='prepared'">
+                <el-form-item label="入党日期">
+                    <el-date-picker
+                            v-model="addParty.userinfo.partyInDate"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="入党类型">
+                    <el-input v-model="addParty.userinfo.partyType" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="进入党支部事时间">
+                    <el-date-picker
+                            v-model="addParty.userinfo.enterDate"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="进入党支部类型">
+                    <el-input v-model="addParty.userinfo.enterType" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="工作所在单位">
+                    <el-date-picker
+                            v-model="addParty.userinfo.workPlace"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+            </template>
+
+            <template v-if="addParty.typed==='develop'">
+                <el-form-item label="申请入党日期">
+                    <el-date-picker
+                            v-model="addParty.userinfo.applyDate"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="入党培养人">
+                    <el-input v-model="addParty.userinfo.developPeople" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="列为积极分子日期">
+                    <el-date-picker
+                            v-model="addParty.userinfo.activeDate"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="列为发展对象日期">
+                    <el-date-picker
+                            v-model="addParty.userinfo.developDate"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="最近党课培训情况">
+                    <el-input v-model="addParty.userinfo.partyTrain" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="最近培训日期">
+                    <el-date-picker
+                            v-model="addParty.userinfo.trainDate"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="最近培训结果">
+                    <el-select v-model="addParty.userinfo.trainResult" placeholder="请选择" size="mini" >
+                        <el-option
+                                v-for="s in ['优秀','合格','不合格']"
+                                :label="s"
+                                :value="s">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+            </template>
+
+            <template v-if="addParty.typed==='active'">
+                <el-form-item label="申请入党日期">
+                    <el-date-picker
+                            v-model="addParty.userinfo.applyDate"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="入党培养人">
+                    <el-input v-model="addParty.userinfo.developPeople" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="列为积极分子日期">
+                    <el-date-picker
+                            v-model="addParty.userinfo.activeDate"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="最近党课培训情况">
+                    <el-input v-model="addParty.userinfo.partyTrain" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="最近培训日期">
+                    <el-date-picker
+                            v-model="addParty.userinfo.trainDate"
+                            type="date"
+                            placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="最近培训结果">
+                    <el-select v-model="addParty.userinfo.trainResult" placeholder="请选择" size="mini" >
+                        <el-option
+                                v-for="s in ['优秀','合格','不合格']"
+                                :label="s"
+                                :value="s">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+            </template>
+        </el-form>
+
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="addParty.addPartyDialog = false">取 消</el-button>
+            <el-button type="primary" @click="addParty.addPartyDialog = false">确 定</el-button>
+        </div>
+    </el-dialog>
+
+
+</div>
+
     <script>
+        new Vue({
+            el:"#container",
+            data:{
+                addParty:{
+                    addPartyDialog:false,
+                    types:[
+                        {label:'党员',value:'party'},
+                        {label:'预备党员',value:'prepared'},
+                        {label:'发展对象',value:'develop'},
+                        {label:'入党积极分子',value:'active'},
+                    ],
+                    typed:'party',
+                    userinfo:{
+                        name:''
+                    }
+                }
+            },
+            created:function () {
+
+            },
+            methods:{
+
+            }
+        })
+
         //Demo
         layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function () {
             var table = layui.table;
@@ -1369,6 +1689,25 @@
 
                 }
 
+                //删除事件！！！！
+                if (event === 'delete'){
+                    console.log(obj)
+                    layer.confirm('确定删除？', function(index){
+                        obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                        layer.close(index);
+                        //向服务端发送删除指令
+                    })
+                }
+
+                if (event === 'update'){
+                    console.log(obj)
+                    layer.confirm('确定转入？', function(index){
+                        obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                        layer.close(index);
+                        //向服务端发送转入指令
+                    })
+                }
+
             //监听提交
             form.on('submit(userInfoUpdate)', function (data) {
                 $.post('/party/user/update',data.field,function (data) {
@@ -1564,6 +1903,7 @@
 
                     cols: [
                         [ //表头
+                            {type: 'checkbox', fixed: 'left'},
                             {field: 'userName',
                                 title: '序号',
                                 width: 120,
@@ -1572,7 +1912,8 @@
                             }, {
                             field: 'name',
                             title: '姓名',
-                            width: 80
+                            width: 80,
+                            fixed: 'left'
                         }, {
                             field: 'sex',
                             title: '性别',
@@ -1613,7 +1954,7 @@
                         }, {
                             field: 'btn',
                             title: '操作',
-                            width: "6%",
+                            width: "12%",
                             align: "center",
                             toolbar: "#ipts"
                         }
@@ -1934,6 +2275,9 @@
                 });
 
             }
+
+
+
         });
     </script>
 </body>
