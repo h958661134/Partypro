@@ -65,9 +65,10 @@ public class ItemBank implements Serializable {
 				+ ", optionB=" + optionB + ", optionC=" + optionC
 				+ ", optionD=" + optionD + ", answer=" + answer + "]";
 	}
-	public ItemBank(String itemType, String itemContent, String optionA,
+	public ItemBank(int id,String itemType, String itemContent, String optionA,
 			String optionB, String optionC, String optionD, String answer) {
 		super();
+		this.id=id;
 		this.itemType = itemType;
 		this.itemContent = itemContent;
 		this.optionA = optionA;

@@ -38,4 +38,23 @@ public interface ItemBankMapper {
 	public List<ItemBank> searchRowItemBank(@Param("num1")int num1,@Param("num2")int num2);
 	
 	public int numberItemBank();
+
+	/**
+	 * 通过内容查询
+	 * @param itemContent
+	 * @return
+	 */
+	public List<ItemBank> selectBankbyContent(@Param("itemContent") String itemContent);
+
+	/**
+	 * 通过id删除
+	 * @param id
+	 */
+	public void delBank(int id);
+
+	/**
+	 * 修改内容
+	 * @param itemBank
+	 */
+	public void updateBank(ItemBank itemBank);
 }

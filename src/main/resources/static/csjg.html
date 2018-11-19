@@ -57,121 +57,78 @@
 
 
 		<script>
-			layui.use('form', function () {
 
-			})
 
-			layui.use('table', function () {
-				var table = layui.table;
 
-				//展示已知数据
-				table.render({
-					elem: '#test'
-						//,url:'/demo/table/user/'
-						,
-					cols: [
-						[ //标题栏
-							{
-								type: 'checkbox'
-							}, {
-								field: 'name',
-								width: 80,
-								title: '姓名'
-							}, {
-								field: 'number',
-								width: 120,
-								title: '考试编号'
-							}, {
-								field: 'designation',
-								width: 200,
-								title: '考试名称'
-							}, {
-								field: 'subject',
-								width: 150,
-								title: '考试题目集'
-							}, {
-								field: 'time',
-								width: 100,
-								title: '创建时间'
-							}, {
-								field: 'chapter',
-								width: 100,
-								title: '学习章节名'
-							}, {
-								field: 'result',
-								width: 130,
-								title: '实际测试结果'
-							}, {
-								field: 'detail',
-								width: 165,
-								title: '是否通过测试'
-							}
+            layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function () {
+                var table = layui.table;
+                var layer = layui.layer;
+                var $ = layui.jquery;
+                var element = layui.element;
+                var laydate = layui.laydate;
+                var form = layui.form;
 
-						]
-					],
-					page: true,
-					data: [{
-							"name": "小王",
-							"number": "18",
-							"designation": "学习十九大一轮模拟考",
-							"subject": "十九大学习手册",
-							"time": "2018-01-17",
-							"chapter": "",
-							"result": "",
-							"detail": ""
-						}, {
-							"name": "小王",
-							"number": "18",
-							"designation": "学习十九大一轮模拟考",
-							"subject": "十九大学习手册",
-							"time": "2018-01-17",
-							"chapter": "",
-							"result": "",
-							"detail": ""
-						}, {
-							"name": "小王",
-							"number": "18",
-							"designation": "学习十九大一轮模拟考",
-							"subject": "十九大学习手册",
-							"time": "2018-01-17",
-							"chapter": "",
-							"result": "",
-							"detail": ""
-						}, {
-							"name": "小王",
-							"number": "18",
-							"designation": "学习十九大一轮模拟考",
-							"subject": "十九大学习手册",
-							"time": "2018-01-17",
-							"chapter": "",
-							"result": "",
-							"detail": ""
-						}, {
-							"name": "小王",
-							"number": "18",
-							"designation": "学习十九大一轮模拟考",
-							"subject": "十九大学习手册",
-							"time": "2018-01-17",
-							"chapter": "",
-							"result": "",
-							"detail": ""
-						}, {
-							"name": "小王",
-							"number": "18",
-							"designation": "学习十九大一轮模拟考",
-							"subject": "十九大学习手册",
-							"time": "2018-01-17",
-							"chapter": "",
-							"result": "",
-							"detail": ""
-						}]
-						//,skin: 'line' //表格风格
-						,
-					even: true
-					//,page: true //是否显示分页
-					//,limits: [5, 7, 10]
-					//,limit: 5 //每页默认显示的数量
-				});
+                $.post("/party/exam/selectall",function (data) {
+                    showdata(data)
+                },"json")
+
+
+                function showdata(data) {
+                    //展示已知数据
+                    table.render({
+                        elem: '#test'
+                        //,url:'/demo/table/user/'
+                        ,
+                        cols: [
+                            [ //标题栏
+                                {
+                                    type: 'checkbox'
+                                }, {
+                                field: 'name',
+                                width: 80,
+                                title: '姓名'
+                            }, {
+                                field: 'examId',
+                                width: 120,
+                                title: '考试编号'
+                            }, {
+                                field: 'examName',
+                                width: 200,
+                                title: '考试名称'
+                            }, {
+                                field: 'examList',
+                                width: 150,
+                                title: '考试题目集'
+                            }, {
+                                field: 'create',
+                                width: 100,
+                                title: '创建时间'
+                            }, {
+                                field: 'examcontext',
+                                width: 100,
+                                title: '学习章节名'
+                            }, {
+                                field: 'examfinal',
+                                width: 130,
+                                title: '实际测试结果'
+                            }, {
+                                field: 'exampass',
+                                width: 165,
+                                title: '是否通过测试'
+                            }
+
+                            ]
+                        ],
+                        page: true,
+                        data: data
+                        //,skin: 'line' //表格风格
+                        ,
+                        even: true
+                        //,page: true //是否显示分页
+                        //,limits: [5, 7, 10]
+                        //,limit: 5 //每页默认显示的数量
+                    });
+                }
 			});
 			table.render({
 				cols: [

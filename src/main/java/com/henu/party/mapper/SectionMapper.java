@@ -9,33 +9,38 @@ import com.henu.party.bean.Section;
 
 
 public interface SectionMapper {
+	/***
+	 * 查询
+	 * @return
+	 */
+	public List<Section> selectSection();
+
 
 	/**
-	 * 插入Section数据
-	 * @param Section
+	 * 通过章节名查询
+	 * @param studySetion
+	 * @return
 	 */
-	public void insertSection(Section section);
-	
+	public List<Section> selectbyname(String studySetion);
+
 	/**
-	 * 根据章节名查询
-	 * @param Key
-	 * @return Section
+	 * 插入
+	 * @param section
 	 */
-	public Section selectByKeySection(String studySection);
-	
+	public void insertsection(Section section);
+
 	/**
-	 * 查询全部
-	 * @return Section集合
+	 * 修改
+	 * @param section
+	 * @param oldstudySetion
 	 */
-	public List<Section> selectAllSection();
-	
+	public void updatesection(Section section,String oldstudySetion);
+
 	/**
-	 * 批量删除
-	 * @param Keys 指定传入的Key集合
+	 * 删除
+	 * @param studySetion
 	 */
-	public void batchDeleteByKeySection(@Param("Keys")String[] Keys);
-	
-	public List<Section> searchRowSection(@Param("num1")int num1,@Param("num2")int num2);
-	
-	public int numberSection();
+	public void delsection(String studySetion);
+
+
 }

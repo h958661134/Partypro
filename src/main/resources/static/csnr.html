@@ -20,10 +20,10 @@
 		<p style="display: inline-block; color: deepskyblue; font-size: 24px;">党课测试题库</p>
 		<div style="float: right;">
 			<button class="layui-btn" id="add">添加</button>
-			<button class="layui-btn">删除</button>
+			<button class="layui-btn" id="delete">删除</button>
 		</div>
 
-		<table class="layui-hide" id="test"></table>
+		<table class="layui-hide" lay-filter="itemBank" id="test"></table>
 	</div>
 </body>
 <div style="display: none;margin: 0 auto" id="add_topic">
@@ -32,13 +32,13 @@
 				<div class="layui-inline">
 					<label class="layui-form-label">题型</label>
 					<div class="layui-input-inline">
-						<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+						<input id="itemType" type="text" name="itemType" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-inline">
 					<label class="layui-form-label">题干</label>
 					<div class="layui-input-inline">
-						<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+						<input id="itemContent" type="text" name="itemContent" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 			</div>
@@ -47,13 +47,13 @@
 					<div class="layui-inline">
 						<label class="layui-form-label">选项A:</label>
 						<div class="layui-input-inline">
-							<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+							<input id="optionA" type="text" name="optionA" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-inline">
 						<label class="layui-form-label">选项B:</label>
 						<div class="layui-input-inline">
-							<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+							<input id="optionB" type="text" name="optionB" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 				</div>
@@ -62,13 +62,13 @@
 						<div class="layui-inline">
 							<label class="layui-form-label">选项C:</label>
 							<div class="layui-input-inline">
-								<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+								<input id="optionC" type="text" name="optionC" autocomplete="off" class="layui-input">
 							</div>
 						</div>
 						<div class="layui-inline">
 							<label class="layui-form-label">选项D:</label>
 							<div class="layui-input-inline">
-								<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+								<input id="optionD" type="text" name="optionD" autocomplete="off" class="layui-input">
 							</div>
 						</div>
 					</div>
@@ -76,28 +76,24 @@
 					<div class="layui-inline">
 							<label class="layui-form-label">答案</label>
 							<div class="layui-input-inline">
-								<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+								<input id="answer" type="text" name="answer" autocomplete="off" class="layui-input">
 							</div>
 						</div>
 					</div>
-				<div class="layui-form-item layui-form-text">
-						<label class="layui-form-label">题目说明</label>
-						<div class="layui-input-block">
-						  <textarea placeholder="请输入内容" class="layui-textarea" style="width: 515px;"></textarea>
-						</div>
-				</div>
 				<div class="layui-form-item">
 						<div class="layui-input-block">
-							<button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
-							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+							<a id="sub" class="layui-btn" lay-submit lay-filter="demo1">立即提交</a>
+							<a type="reset" class="layui-btn layui-btn-primary">重置</a>
 						</div>
 				</div>
 		</form>
 	
 	</div>
-</html>
+<script type="text/html" id="ipts">
+	<a class="layui-btn layui-btn-xs" lay-event="detail">修改</a>
+</script>
 <script>
-	layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function () {
+    layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function () {
         var table = layui.table;
         var layer = layui.layer;
         var $ = layui.jquery;
@@ -105,7 +101,76 @@
         var laydate = layui.laydate;
         var form = layui.form;
 
-		 $('#add').click(function () {
+        //删除
+		$('#delete').click(function () {
+            table.on('tool(itemBank)',function (obj) {
+                var delid=[]
+                for(let index in obj) {
+                    alert(index)
+                };
+                if (obj.class==="layui-form-checked") {
+                    delid.push(obj.data("id"))
+                }
+                $.post('/party/item/delbank',delid,function () {
+                })
+            })
+        })
+
+
+
+
+        //修改
+        table.on('tool(itemBank)',function (obj) {
+			var objitem=obj.event
+            if (objitem === 'detail') {
+                layer.open({
+                    type: 1,
+                    area: '800px',
+                    content: $('#add_topic'), //这里content是一个普通的String
+					id:"updateitem"
+                });
+                $('#sub').attr("lay-filter","updateitem")
+
+                $('#id').val(obj.data['id'])
+                $('#itemType').val(obj.data['itemType'])
+                $('#itemContent').val(obj.data['itemContent'])
+                $('#optionA').val(obj.data['optionA'])
+                $('#optionB').val(obj.data['optionB'])
+                $('#optionC').val(obj.data['optionC'])
+                $('#optionD').val(obj.data['optionD'])
+                $('#answer').val(obj.data['answer'])
+
+                form.on('submit(updateitem)', function(data){
+                    console.log(data)
+                    $.post('/party/item/updatebank',data.field,function () {
+                        layer.closeAll();
+                    })
+                    return false;
+                });
+            }
+        })
+
+
+
+        //监听提交
+        form.on('submit(demo1)', function(data){
+            console.log(data)
+            $.post('/party/item/insertitem',data.field,function () {
+                layer.closeAll();
+            })
+            return false;
+        });
+
+        $('#add').click(function () {
+            $('#sub').attr("lay-filter","demo1")
+            $('#id').val("")
+            $('#itemType').val("")
+            $('#itemContent').val("")
+            $('#optionA').val("")
+            $('#optionB').val("")
+            $('#optionC').val("")
+            $('#optionD').val("")
+            $('#answer').val("")
             layer.open({
                 type:1,
                 title: '增加题目内容',
@@ -116,73 +181,84 @@
             return false
         })
 
-		//展示已知数据
-		table.render({
-			elem: '#test'
-				//,url:'/demo/table/user/'
-				,
-			cols: [
-				[ //标题栏
-					{
-						type: 'checkbox'
-					}, {
-						field: 'type',
-						width: 450,
-						title: '题型'
-					}, {
-						field: 'stem',
-						width: 200,
-						title: '题干'
-					}, {
-						field: 'detail',
-						width: 400,
-						title: '答案'
-					}
-				]
-			],
-			page: true,
-			data: [{
-					"type": "学习习大大精神",
-					"stem": "学习精神",
-					"detail": "xianxin@layui.com"
-				}, {
-					"type": "学习习大大精神",
-					"stem": "学习精神",
-					"detail": "xianxin@layui.com"
-				}, {
-					"type": "学习习大大精神",
-					"stem": "学习精神",
-					"detail": "xianxin@layui.com"
-				}, {
-					"type": "学习习大大精神",
-					"stem": "学习精神",
-					"detail": "xianxin@layui.com"
-				}, {
-					"type": "学习习大大精神",
-					"stem": "学习精神",
-					"detail": "xianxin@layui.com"
-				}]
-				//,skin: 'line' //表格风格
-				,
-			even: true
-			//,page: true //是否显示分页
-			//,limits: [5, 7, 10]
-			//,limit: 5 //每页默认显示的数量
-		});
-	});
-	table.render({
-		cols: [
-			[{
-					field: 'id',
-					title: 'ID',
-					width: 100
-				}, {
-					fixed: 'right',
-					width: 150,
-					align: 'center',
-					toolbar: '#barDemo'
-				} //这里的toolbar值是模板元素的选择器
-			]
-		]
-	});
+        //表格
+        $.post("/party/item/selectitem",function (data) {
+            // console.log(data)
+            pageshow(data)
+        },"json")
+
+        //展示已知数据
+        function pageshow(data) {
+            table.render({
+                elem: '#test'
+                //,url:'/demo/table/user/'
+                ,
+                cols: [
+                    [ //标题栏
+                        {
+                            type: 'checkbox'
+                        }, {
+                        field: 'id',
+                        width: "8%",
+                        title: '题号'
+                    }, {
+                        field: 'itemType',
+                        width: "40%",
+                        title: '题干'
+                    }, {
+                        field: 'optionA',
+                        width: "10%",
+                        title: '答案A'
+                    }, {
+                        field: 'optionB',
+                        width: "10%",
+                        title: '答案B'
+                    }, {
+                        field: 'optionC',
+                        width: "10%",
+                        title: '答案C'
+                    }, {
+                        field: 'optionD',
+                        width: "10%",
+                        title: '答案D'
+                    }, {
+                        field: 'answer',
+                        width: "10%",
+                        title: '答案'
+                    }, {
+                        field: 'btn',
+                        title: '操作',
+                        width: "6%",
+                        align: "center",
+                        toolbar: "#ipts"
+                    }
+                    ]
+                ],
+                page: true,
+                data: data
+                //,skin: 'line' //表格风格
+                ,
+                even: true
+                , page: true //是否显示分页
+                //,limits: [5, 7, 10]
+                , limit: 10 //每页默认显示的数量
+            });
+        }
+    });
+    table.render({
+        cols: [
+            [{
+                field: 'id',
+                title: 'ID',
+                width: 100
+            }, {
+                fixed: 'right',
+                width: 150,
+                align: 'center',
+                toolbar: '#barDemo'
+            } //这里的toolbar值是模板元素的选择器
+            ]
+        ]
+    });
 </script>
+</html>

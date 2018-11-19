@@ -43,4 +43,19 @@
 	<select id="numberItemBank"  resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM tb_itemBank
 	</select>
+
+	<!-- 通过内容查询 -->
+	<select id="selectBankbyContent" parameterType="String" resultType="com.henu.party.bean.ItemBank">
+		select * from tb_itemBank where itemContent like concat('%',#{itemContent},'%')
+	</select>
+
+	<!-- 删除 -->
+	<delete id="delBank">
+		delete from tb_itemBank where id=#{id}
+	</delete>
+
+	<!-- 修改 -->
+	<update id="updateBank" parameterType="com.henu.party.bean.ItemBank">
+		update tb_itemBank set optionA=#{optionA},optionB=#{optionB},optionC=#{optionC},optionD=#{optionD},answer=#{answer} where itemContent=#{itemContent}
+	</update>
 </mapper>

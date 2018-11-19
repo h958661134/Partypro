@@ -36,13 +36,13 @@
 			<div class="layui-inline">
 				<label class="layui-form-label">学习章节名</label>
 				<div class="layui-input-inline">
-					<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+					<input type="tel" name="studySetion" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 			<div class="layui-inline">
 				<label class="layui-form-label">视频路径</label>
 				<div class="layui-input-inline">
-					<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+					<input type="text" name="video" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
@@ -51,21 +51,15 @@
 				<div class="layui-inline">
 					<label class="layui-form-label">本章总时间</label>
 					<div class="layui-input-inline">
-						<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+						<input type="tel" name="sectionTime" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-inline">
 					<label class="layui-form-label">本章总分数</label>
 					<div class="layui-input-inline">
-						<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+						<input type="text" name="grade" autocomplete="off" class="layui-input">
 					</div>
 				</div>
-			</div>
-			<div class="layui-form-item layui-form-text">
-					<label class="layui-form-label">学习内容</label>
-					<div class="layui-input-block">
-					  <textarea placeholder="请输入内容" class="layui-textarea" style="width: 510px;"></textarea>
-					</div>
 			</div>
 			<div class="layui-form-item">
 					<div class="layui-input-block">
@@ -85,6 +79,16 @@ layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function (
         var laydate = layui.laydate;
         var form = layui.form;
 
+
+		//监听提交
+		form.on('submit(demo1)', function(data){
+			console.log(data)
+			$.post('/party/section/insertsection',data.field,function () {
+				layer.closeAll();
+			})
+			return false;
+		});
+
 		 $('#add').click(function () {
             layer.open({
                 type:1,
@@ -95,55 +99,47 @@ layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function (
             });
             return false
         })
-		//展示已知数据
-		table.render({
-			elem: '#test',
-			page: true,
-			width: 1105,
-			cols: [
-				[ //标题栏
-					{
-						type: 'checkbox'
-					}, {
-						field: 'name',
-						width: 368,
-						title: '学习章节名'
-					}, {
-						field: 'time',
-						width: 368,
-						title: '学习总时间'
-					}, {
-						field: 'detail',
-						width: 316,
-						title: '详细'
-					}
-				]
-			],
-			page: true,
-			data: [{
-				"name": "第六章",
-				"time": "00:12:33",
-				"detail": "xianxin@layui.com"
-			}, {
-				"name": "第六章",
-				"time": "00:12:33",
-				"detail": "xianxin@layui.com"
-			}, {
-				"name": "第六章",
-				"time": "00:12:33",
-				"detail": "xianxin@layui.com"
-			}, {
-				"name": "第六章",
-				"time": "00:12:33",
-				"detail": "xianxin@layui.com"
-			}, {
-				"name": "第六章",
-				"time": "00:12:33",
-				"detail": "xianxin@layui.com"
-			}],
-			even: true
 
-		});
+
+		$.post("/party/section/selectsection",function (data) {
+            showpage(data)
+		},"json")
+
+		function showpage(data){
+			//展示已知数据
+			table.render({
+				elem: '#test',
+				page: true,
+				width: 1105,
+				cols: [
+					[ //标题栏
+						{
+							type: 'checkbox'
+						}, {
+							field: 'studySetion',
+							width: "30%",
+							title: '学习章节名'
+						}, {
+							field: 'sectionTime',
+							width: "20%",
+							title: '学习总时间'
+						},{
+							field: 'video',
+							width: "35%",
+							title: '视频路径'
+						}, {
+							field: 'grade',
+							width: "10%",
+							title: '总成绩'
+						}
+					]
+				],
+				page: true,
+				data: data,
+				even: true
+
+			});
+		}
 	});
 </script>
 
