@@ -69,9 +69,19 @@
 	        <artifactId>spring-boot-devtools</artifactId>
 	        <optional>true</optional>
 	        <version>1.5.9.RELEASE</version>
+	        
     	</dependency>
-
-
+			<!-- 文档导入导出 -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.17</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.apache.poi</groupId>
+		  <artifactId>poi-ooxml</artifactId>
+		  <version>3.17</version>
+		</dependency>
 	</dependencies>
 
 	<build>
