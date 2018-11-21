@@ -53,7 +53,7 @@ public interface PartyBranchMapper {
 	/*
 	 * 新增党支部信息
 	 */
-	public int insertOnePartyBranch(PartyBranch partyBranch);
+	public boolean insertOnePartyBranch(PartyBranch partyBranch);
 	
 	/*
 	 * 根据partyId查询党组织班子成员信息

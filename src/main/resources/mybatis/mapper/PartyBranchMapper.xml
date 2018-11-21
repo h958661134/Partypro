@@ -49,7 +49,7 @@
     	
     	<!-- 新增党支部信息 -->
     	<insert id="insertOnePartyBranch" parameterType="com.henu.party.bean.PartyBranch">
-    		insert into tb_partyBranch values(uuid(),#{userName},123,#{partyId},#{partyName},#{partyType},#{partyAddress},#{leaderDate},#{endDate},#{selectType},#{supposeNum},#{arriveNum},#{createDate},#{startMeetDate},#{endMeetDate},#{address},#{zipcode},#{phone},#{faxNum},#{remark})
+    		insert into tb_partyBranch values(#{num},#{userName},123,#{partyId},#{partyName},#{partyType},#{partyAddress},#{leaderDate},#{endDate},#{selectType},#{supposeNum},#{arriveNum},#{createDate},#{startMeetDate},#{endMeetDate},#{address},#{zipcode},#{phone},#{faxNum},#{remark})
     	</insert>
     	
     	<!-- 根据num修改党支部基本信息 -->

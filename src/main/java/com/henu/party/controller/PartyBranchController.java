@@ -19,6 +19,7 @@ import com.henu.party.service.RePuPartyService;
  * 党支部前端控制器
  */
 @RestController
+@RequestMapping("/partybranchcontroller")
 public class PartyBranchController {
 	/**
 	 * 用于党支部信息

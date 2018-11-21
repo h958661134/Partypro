@@ -84,8 +84,7 @@ public class PartyBranchServiceImpl implements PartyBranchService{
 		if(partyBranch == null ){
 			throw new RuntimeException("党支部不存在");
 		}
-		int res = pBMapper.insertOnePartyBranch(partyBranch);
-		return res == 1;
+		return pBMapper.insertOnePartyBranch(partyBranch);
 	}
 
 }
