@@ -28,7 +28,7 @@ public interface SectionService {
      * 修改
      * @param section
      */
-    public void updatesection(Section section,String oldname);
+    public void updatesection(Section section);
 
     /**
      * 删除

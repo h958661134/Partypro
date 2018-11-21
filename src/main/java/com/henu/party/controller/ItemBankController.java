@@ -65,11 +65,9 @@ public class ItemBankController {
      * @param id
      */
     @RequestMapping("/item/delbank")
-    public void delbank(int[] id){
-        System.out.println(id.toString());
-        for (int i:id) {
-            itemBankService.delBank(i);
-        }
+    public void delbank(Integer id){
+        System.out.println(id);
+        itemBankService.delBank(id);
     }
 
 }

@@ -32,9 +32,8 @@ public interface SectionMapper {
 	/**
 	 * 修改
 	 * @param section
-	 * @param oldstudySetion
 	 */
-	public void updatesection(Section section,String oldstudySetion);
+	public void updatesection(Section section);
 
 	/**
 	 * 删除

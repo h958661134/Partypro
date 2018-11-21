@@ -22,12 +22,12 @@
 
 	<!--更新section-->
 	<update id="updatesection">
-		update tb_section set studySection=#{studySetion},video=#{video},sectionTime=#{sectionTime},grade=#{grade} where studySection=#{oldstudySetion}
+		update tb_section set video=#{video},sectionTime=#{sectionTime},grade=#{grade} where studySetion=#{studySetion}
 	</update>
 
 	<!--删除section-->
 	<delete id="delsection" parameterType="com.henu.party.bean.Section">
-		delete from tb_section where studySection=#{studySetion}
+		delete from tb_section where studySetion=#{studySetion}
 	</delete>
 
 </mapper>

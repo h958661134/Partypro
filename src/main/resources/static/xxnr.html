@@ -20,11 +20,10 @@
 		<p style="display: inline-block; color: deepskyblue; font-size: 24px;">学习内容</p>
 		<div style="float: right;">
 			<button class="layui-btn" id='add'>添加</button>
-			<button class="layui-btn">删除</button>
 		</div>
 		<div>
 			<form style="margin-top: 20px">
-				<table class="layui-hide" id="test"></table>
+				<table class="layui-hide" lay-filter="studycontent" id="test"></table>
 			</form>
 		</div>
 	</div>
@@ -36,13 +35,13 @@
 			<div class="layui-inline">
 				<label class="layui-form-label">学习章节名</label>
 				<div class="layui-input-inline">
-					<input type="tel" name="studySetion" autocomplete="off" class="layui-input">
+					<input id="studySetion" type="text" name="studySetion" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 			<div class="layui-inline">
 				<label class="layui-form-label">视频路径</label>
 				<div class="layui-input-inline">
-					<input type="text" name="video" autocomplete="off" class="layui-input">
+					<input id="video" type="text" name="video" autocomplete="off" class="layui-input">
 				</div>
 			</div>
 		</div>
@@ -51,13 +50,13 @@
 				<div class="layui-inline">
 					<label class="layui-form-label">本章总时间</label>
 					<div class="layui-input-inline">
-						<input type="tel" name="sectionTime" autocomplete="off" class="layui-input">
+						<input id="sectionTime" type="text" name="sectionTime" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-inline">
 					<label class="layui-form-label">本章总分数</label>
 					<div class="layui-input-inline">
-						<input type="text" name="grade" autocomplete="off" class="layui-input">
+						<input id="grade" type="text" name="grade" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 			</div>
@@ -68,8 +67,14 @@
 					</div>
 			</div>
 	</form>
-
 </div>
+<!--<script type="text/html" id="ipts">-->
+	<!--<a class="layui-btn layui-btn-xs" lay-event="detail">修改</a>-->
+<!--</script>-->
+<script type="text/html" id="del">
+	<a class="layui-btn layui-btn-xs" lay-event="detail1">删除</a>
+</script>
+
 <script>
 layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function () {
         var table = layui.table;
@@ -79,17 +84,58 @@ layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function (
         var laydate = layui.laydate;
         var form = layui.form;
 
+		table.on('tool(studycontent)',function (obj) {
+            var objitem=obj.event
+            if (objitem === 'detail') {
+                layer.open({
+                    type:1,
+                    title: '增加学习内容',
+                    area: '800px',
+                    btn:[],
+                    content: $('#add_study'),
+                });
+                $('#sub').attr("lay-filter", "updateitem")
+
+                $('#studySetion').val(obj.data['studySetion'])
+                $('#video').val(obj.data['video'])
+                $('#sectionTime').val(obj.data['sectionTime'])
+                $('#grade').val(obj.data['grade'])
+
+                form.on('submit(updateitem)', function (data) {
+                    console.log(data)
+                    $.post('/party/section/updatesection', data.field, function () {
+                        layer.closeAll();
+                        window.location.reload();
+                    })
+                    return false;
+                });
+            }
+            if(objitem === 'detail1'){
+                // alert(typeof (obj.data['id']));
+                $.post("/party/section/delsection", {
+                    name: obj.data['studySetion']
+                }, function (e) {
+                    window.location.reload();
+                });
+            }
+		})
 
 		//监听提交
 		form.on('submit(demo1)', function(data){
 			console.log(data)
 			$.post('/party/section/insertsection',data.field,function () {
 				layer.closeAll();
+                window.location.reload();
 			})
 			return false;
 		});
 
 		 $('#add').click(function () {
+             $('#sub').attr("lay-filter", "demo1")
+             $('#studySetion').val("")
+             $('#video').val("")
+             $('#sectionTime').val("")
+             $('#grade').val("")
             layer.open({
                 type:1,
                 title: '增加学习内容',
@@ -125,13 +171,19 @@ layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function (
 							title: '学习总时间'
 						},{
 							field: 'video',
-							width: "35%",
+							width: "25%",
 							title: '视频路径'
 						}, {
 							field: 'grade',
 							width: "10%",
 							title: '总成绩'
-						}
+						},  {
+                        field: 'btn',
+                        title: '删除',
+                        width: "6%",
+                        align: "center",
+                        toolbar: "#del"
+                    }
 					]
 				],
 				page: true,

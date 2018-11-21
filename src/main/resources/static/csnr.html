@@ -20,7 +20,6 @@
 		<p style="display: inline-block; color: deepskyblue; font-size: 24px;">党课测试题库</p>
 		<div style="float: right;">
 			<button class="layui-btn" id="add">添加</button>
-			<button class="layui-btn" id="delete">删除</button>
 		</div>
 
 		<table class="layui-hide" lay-filter="itemBank" id="test"></table>
@@ -92,6 +91,9 @@
 <script type="text/html" id="ipts">
 	<a class="layui-btn layui-btn-xs" lay-event="detail">修改</a>
 </script>
+<script type="text/html" id="del">
+	<a class="layui-btn layui-btn-xs" lay-event="detail1">删除</a>
+</script>
 <script>
     layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function () {
         var table = layui.table;
@@ -101,20 +103,6 @@
         var laydate = layui.laydate;
         var form = layui.form;
 
-        //删除
-		$('#delete').click(function () {
-            table.on('tool(itemBank)',function (obj) {
-                var delid=[]
-                for(let index in obj) {
-                    alert(index)
-                };
-                if (obj.class==="layui-form-checked") {
-                    delid.push(obj.data("id"))
-                }
-                $.post('/party/item/delbank',delid,function () {
-                })
-            })
-        })
 
 
 
@@ -144,10 +132,19 @@
                     console.log(data)
                     $.post('/party/item/updatebank',data.field,function () {
                         layer.closeAll();
+                        window.location.reload();
                     })
                     return false;
                 });
             }
+            if(objitem === 'detail1'){
+                // alert(typeof (obj.data['id']));
+                $.post("/party/item/delbank", {
+                    id: obj.data['id']
+                }, function (e) {
+                    window.location.reload();
+				});
+			}
         })
 
 
@@ -157,6 +154,7 @@
             console.log(data)
             $.post('/party/item/insertitem',data.field,function () {
                 layer.closeAll();
+                window.location.reload();
             })
             return false;
         });
@@ -231,6 +229,12 @@
                         width: "6%",
                         align: "center",
                         toolbar: "#ipts"
+                    }, {
+                        field: 'btn',
+                        title: '删除',
+                        width: "6%",
+                        align: "center",
+                        toolbar: "#del"
                     }
                     ]
                 ],

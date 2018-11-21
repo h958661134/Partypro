@@ -29,8 +29,8 @@ public class SectionServiceImpl implements SectionService {
     }
 
     @Override
-    public void updatesection(Section section,String oldname) {
-        sectionMapper.updatesection(section,oldname);
+    public void updatesection(Section section) {
+        sectionMapper.updatesection(section);
     }
 
     @Override

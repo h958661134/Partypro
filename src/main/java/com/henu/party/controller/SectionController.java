@@ -22,4 +22,14 @@ public class SectionController {
     public void insertsection(Section section){
         sectionService.insertsection(section);
     }
+
+    @RequestMapping("/section/updatesection")
+    public void updatesection(Section section){
+        sectionService.updatesection(section);
+    }
+
+    @RequestMapping("/section/delsection")
+    public void delsection(String name){
+        sectionService.delsection(name);
+    }
 }
