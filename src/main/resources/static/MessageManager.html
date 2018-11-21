@@ -1406,8 +1406,35 @@
 </div>
 
 <script>
+    new Vue({
+        el: "#container",
+        data: {
+            addParty: {
+                addPartyDialog: false,
+                types: [
+                    {label: '正式党员', value: 'party'},
+                    {label: '预备党员', value: 'prepared'},
+                    {label: '发展对象', value: 'develop'},
+                    {label: '入党积极分子', value: 'active'},
+                ],
+                userinfo: {
+                    partyState: 'party',
+                }
+            }
+        },
+        created: function () {
 
+        },
+        methods: {
+            addPerson:function () {
+                var userinfo = this.addParty.userinfo
+                addPerson(userinfo)
 
+                this.addParty.addPartyDialog = false
+            }
+        }
+    })
+    var addPerson = function(){}
     //Demo
     layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function () {
         var table = layui.table;
@@ -1417,43 +1444,18 @@
         var laydate = layui.laydate;
         var form = layui.form;
 
-        new Vue({
-            el: "#container",
-            data: {
-                addParty: {
-                    addPartyDialog: false,
-                    types: [
-                        {label: '正式党员', value: 'party'},
-                        {label: '预备党员', value: 'prepared'},
-                        {label: '发展对象', value: 'develop'},
-                        {label: '入党积极分子', value: 'active'},
-                    ],
-                    userinfo: {
-                        partyState: 'party',
-                    }
-                }
-            },
-            created: function () {
-
-            },
-            methods: {
-                addPerson:function () {
-                    var userinfo = this.addParty.userinfo
-                    for(var key in userinfo){
-                        if(userinfo[key] === undefined || userinfo[key] === null){
-                            userinfo[key] = ''
-                        }
-                    }
-                    console.log(userinfo)
-                    $.post('/party/user/addUserInfo',userinfo,function (resp) {
-                        if(resp){
-                            layer.msg('添加成功')
-                        }
-                    })
-                    this.addParty.addPartyDialog = false
+        addPerson= function(userinfo){
+            for(var key in userinfo){
+                if(userinfo[key] === undefined || userinfo[key] === null){
+                    userinfo[key] = ''
                 }
             }
-        })
+            $.post('/party/user/addUserInfo',userinfo,function (resp) {
+                if(resp){
+                    layer.msg('添加成功')
+                }
+            })
+        }
 
         $('#add1').click(function () {
             layer.open({
