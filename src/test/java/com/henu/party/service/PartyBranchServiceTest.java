@@ -65,7 +65,7 @@ public class PartyBranchServiceTest {
 	@Test
 	public void testBatchDeletePartyBranch(){
 		String[] dpb= {"春物"};
-		boolean res = pbs.batchDeletePartyBranch(dpb);
-		System.out.println(res);
+//		boolean res = pbs.batchDeletePartyBranch(dpb);
+//		System.out.println(res);
 	}
 }

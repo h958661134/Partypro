@@ -69,12 +69,8 @@ public class PartyBranchServiceImpl implements PartyBranchService{
 	/*
 	 * 批量删除党支部信息
 	 */
-	public boolean batchDeletePartyBranch(String[] p) {
-		if(p == null){
-			throw new RuntimeException("删除条件为空");
-		}
-		int res = pBMapper.batchDeletePartyBranch(p);
-		return res == 1;
+	public boolean batchDeletePartyBranch(String num) {
+		return pBMapper.batchDeletePartyBranch(num);
 	}
 
 	/*

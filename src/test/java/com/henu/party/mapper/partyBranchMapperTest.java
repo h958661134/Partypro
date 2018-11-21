@@ -32,6 +32,7 @@ public class partyBranchMapperTest {
     	pb.setUserName("001");
     	pb.setPassword("123");
     	partyBranchMapper.insertOnePartyBranch(pb);
+//    	partyBranchMapper.batchDeletePartyBranch("11");
     	System.out.println(partyBranchMapper.selectAllPartyBranch());
     	
        

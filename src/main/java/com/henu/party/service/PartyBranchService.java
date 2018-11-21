@@ -32,7 +32,7 @@ public interface PartyBranchService {
 	/*
 	 * 批量删除党支部信息
 	 */
-	public boolean batchDeletePartyBranch(@Param("pids")String[] p);
+	public boolean batchDeletePartyBranch(@Param("num")String num);
 	
 	/*
 	 * 新增党支部信息

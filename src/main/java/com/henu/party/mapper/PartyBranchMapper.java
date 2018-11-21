@@ -48,7 +48,7 @@ public interface PartyBranchMapper {
 	/*
 	 * 批量删除党支部信息
 	 */
-	public int batchDeletePartyBranch(@Param("pids")String[] p);
+	public boolean batchDeletePartyBranch(@Param("num")String num);
 	
 	/*
 	 * 新增党支部信息

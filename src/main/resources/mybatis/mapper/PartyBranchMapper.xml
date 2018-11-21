@@ -41,10 +41,8 @@
     	<!-- 批量删除党支部信息 -->
     	<delete id="batchDeletePartyBranch" parameterType="java.lang.String" >
     		delete from tb_partyBranch 
-    		where num in 
-    		<foreach collection="pids" open="(" close=")" separator="," item="pid">
-    			#{pid}
-    		</foreach>
+    		where num =#{num}
+    		
     	</delete>
     	
     	<!-- 新增党支部信息 -->

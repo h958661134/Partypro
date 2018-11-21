@@ -94,8 +94,8 @@ public class PartyBranchController {
 	 * @return
 	 */
 	@RequestMapping("/partybranch/batchDeletePartyBranch")
-	public boolean batchDeletePartyBranch(String[] p){
-		return pbS.batchDeletePartyBranch(p);
+	public boolean batchDeletePartyBranch(String num){
+		return pbS.batchDeletePartyBranch(num);
 	}
 	/**
 	 * 新增党支部信息

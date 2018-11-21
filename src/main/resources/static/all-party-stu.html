@@ -125,7 +125,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">邮政编码</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="zipCode" di="zipCode" lay-verify="" autocomplete="off" class="layui-input">
+                    <input type="text" name="zipCode" id="zipCode" lay-verify="" autocomplete="off" class="layui-input">
                 </div>
             </div>
         </div>
@@ -170,13 +170,13 @@
             <div class="layui-inline">
                 <label class="layui-form-label">编号</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="num" id="num" lay-verify="" autocomplete="off" class="layui-input">
+                    <input type="text" name="numD" id="numD" lay-verify="" autocomplete="off" class="layui-input">
                 </div>
             </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="addSub">立即提交</button>
+                <button class="layui-btn" lay-submit lay-filter="addPwb">立即提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -185,13 +185,13 @@
     <a class="layui-btn layui-btn-xs" lay-event="del">删除</a>
 </script>
 <script>
-    layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function () {
-        var table = layui.table;
-        var layer = layui.layer;
-        var $ = layui.jquery;
-        var element = layui.element;
-        var laydate = layui.laydate;
-        var form = layui.form;   
+layui.use(['table', 'layer', 'jquery', 'element', 'laydate', 'form'], function () {
+    var table = layui.table;
+    var layer = layui.layer;
+    var $ = layui.jquery;
+    var element = layui.element;
+    var laydate = layui.laydate;
+    var form = layui.form;   
 //封装ajax        
 	function searchAll(){
         $.ajax({
@@ -213,19 +213,18 @@ searchAll();
                 type:1,
                 title: '添加党组织',
                 area: '1000px',
-                btn:[],
                 content: $('#add_party'),
             });
-            return false
         })
         //监听提交
-        form.on('submit(addSub)', function (data) {
-        	console.log(data.field);
+        form.on('submit(addPwb)', function (data) {
+        	console.log(data);
     	    $.ajax({
     	    	type:"GET",
+    	    	dataType:"json",
     	    	url:"/party/partybranchcontroller/partybranch/insertOnePartyBranch",
     	    	data:{
-    	    		num:data.field.num,	
+    	    		num:data.field.numD,	
     	    		userName:data.field.userName,	
     	    		partyId:data.field.partyId,	
     	    		partyName:data.field.partyName,	
@@ -374,7 +373,7 @@ function showTable(data){
 	          	  $.ajax({
 	            		type:"POST",
 	            		data:{
-	            			act_no:obj.data.act_no
+	            			num:obj.data.num
 	            		},
 	            		url:"/party/partybranchcontroller/partybranch/batchDeletePartyBranch",
 	            		dataType:"json",
