@@ -197,6 +197,10 @@
 			otherSubsidy=#{otherSubsidy}
 		WHERE userName=#{userName}
 	</update>
+	
+	<!--<delete id="delectByUserName" parameterType="String">-->
+		<!--delete from tb_userInfo where userName=#{userName}-->
+	<!--</delete>-->
 
 
 </mapper>

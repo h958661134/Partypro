@@ -90,4 +90,5 @@ public interface UserInfoMapper {
 	public void updatePoorPartyer(PoorPartyer poorPartyer);
 
 
+
 }

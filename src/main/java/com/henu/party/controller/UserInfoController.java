@@ -113,8 +113,9 @@ public class UserInfoController {
      * @return
      */
     @RequestMapping("/user/delete")
-    public boolean deleteUserInfo(UserInfo userInfo){
-
+    public boolean deleteUserInfo(String username){
+        System.out.println(username);
+        userInfoMapper.deleteByUserName(username);
         return true;
     }
 

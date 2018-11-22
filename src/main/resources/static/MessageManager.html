@@ -1809,7 +1809,9 @@
                 layer.confirm('确定删除？', function (index) {
                     obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
                     layer.close(index);
-                    //向服务端发送删除指令
+                    $.post('/party/user/delete',{username:obj.data.userName},function (data) {
+                        layer.msg('删除成功')
+                    })
                 })
             }
 
