@@ -1,6 +1,7 @@
 package com.henu.party.controller;
 
 import com.henu.party.bean.*;
+import com.henu.party.mapper.UserInfoMapper;
 import com.henu.party.service.UserService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import java.util.List;
 public class UserInfoController {
     @Autowired
     UserService userService;
+    @Autowired
+    UserInfoMapper userInfoMapper;
 
     @RequestMapping("/User/UserInfo")
     public List<UserInfo> UserInfo(){
@@ -56,16 +59,6 @@ public class UserInfoController {
     }
 
     /**
-     * 添加新的用户信息
-     * @param userInfo 添加的用户信息实体
-     */
-    @RequestMapping("/user/addUserInfo")
-    public boolean AddUserInfo(UserInfo userInfo){
-
-        return true;
-    }
-
-    /**
      * 修改用户信息
      * @param userInfo 修改用户的实体
      * @return
@@ -75,6 +68,43 @@ public class UserInfoController {
         System.err.println(userInfo);
         userService.updateUserInfo(userInfo);
         return true;
+    }
+
+    /**
+     * 修改用户党务身份
+     * @param userInfo 修改用户的实体
+     * @return
+     */
+    @RequestMapping("/user/updatePartyState")
+    public boolean updateUserInfo(String username,String partyState){
+        UserInfo ui = userInfoMapper.selectUserInfoByUsername(username);
+        if(ui!=null){
+            if(ui.getPartyState().equals(partyState)){
+                if(partyState.equals("入党积极分子")){
+                    ui.setPartyState("发展对象");
+                }else if(partyState.equals("发展对象")){
+                    ui.setPartyState("预备党员");
+                }else if(partyState.equals("预备党员")){
+                    ui.setPartyState("正式党员");
+                }else if(partyState.equals("正式党员")){
+                    ui.setPartyState("转出");
+                }
+            }
+
+            userInfoMapper.updateByUserName(ui);
+        }
+        return true;
+    }
+
+    @RequestMapping("/user/addUserInfo")
+    public boolean addUserInfo(UserInfo userInfo){
+        System.out.println(userInfo);
+        if(userInfo!=null){
+            userInfoMapper.insertUser(userInfo);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**
