@@ -18,7 +18,7 @@ public interface ParBranMemberService {
 	/*
 	 * 批量删除或删除指定党组织班子成员
 	 */
-	public boolean batchDeleteParMem(@Param("pids")String[] p);
+	public boolean batchDeleteParMem(String num);
 	
 	/*
 	 * 根据num修改党组织班子成员

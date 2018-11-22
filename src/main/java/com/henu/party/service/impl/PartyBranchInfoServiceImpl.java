@@ -39,12 +39,10 @@ public class PartyBranchInfoServiceImpl implements PartyBranchInfoService{
 	/*
 	 * 批量删除或删除指定党组织关联单位
 	 */
-	public boolean batchDeleteParCom(String[] p)  {
-		if(p == null){
-			throw new RuntimeException("删除条件为空");
-		}
-		int res = pBMapper.batchDeleteParCom(p);
-		return res == 1;
+	public boolean batchDeleteParCom(String num)  {
+		
+		
+		return pBMapper.batchDeleteParCom(num);
 	}
 	/*
 	 * 根据num修改党组织关联单位

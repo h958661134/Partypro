@@ -133,8 +133,8 @@ public class PartyBranchController {
 	 * @return
 	 */
 	@RequestMapping("/partybranch/batchDeleteParMem")
-	public boolean batchDeleteParMem(@Param("pids")String[] p){
-		return pbmS.batchDeleteParMem(p);
+	public boolean batchDeleteParMem(String num){
+		return pbmS.batchDeleteParMem(num);
 	}
 	/**
 	 * 根据num修改党组织班子成员
@@ -168,10 +168,10 @@ public class PartyBranchController {
 	 * @return
 	 */
 	@RequestMapping("/partybranch/insertParBranchCom1")
-	public boolean batchDeleteParCom(String[] p){
+	public boolean batchDeleteParCom(String num){
 		
 		
-		return pbiS.batchDeleteParCom(p);
+		return pbiS.batchDeleteParCom(num);
 	}
 	
 	/**
@@ -220,9 +220,9 @@ public class PartyBranchController {
 	 * @return
 	 */
 	@RequestMapping("/partybranch/batchDeleteParRepu")
-	public boolean batchDeleteParRepu(String[] p){
+	public boolean batchDeleteParRepu(String num){
 		
-		return rppS.batchDeleteParRepu(p);
+		return rppS.batchDeleteParRepu(num);
 	}
 	/**
 	 * 根据num修改党组织奖惩信息

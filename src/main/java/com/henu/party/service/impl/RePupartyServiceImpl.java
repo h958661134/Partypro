@@ -37,12 +37,9 @@ public class RePupartyServiceImpl implements RePuPartyService{
 	/*
 	 * 批量删除或删除指定党组织奖惩信息
 	 */
-	public boolean batchDeleteParRepu(String[] p) {
-		if(p == null){
-			throw new RuntimeException("删除条件为空");
-		}
-		int res = pBMapper.batchDeleteParRepu(p);
-		return res == 1;
+	public boolean batchDeleteParRepu(String num) {
+		
+		return pBMapper.batchDeleteParRepu(num);
 	}
 
 	/*

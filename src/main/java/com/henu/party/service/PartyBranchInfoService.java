@@ -20,7 +20,7 @@ public interface PartyBranchInfoService {
 	/*
 	 * 批量删除或删除指定党组织关联单位
 	 */
-	public boolean batchDeleteParCom(@Param("pids")String[] p);
+	public boolean batchDeleteParCom(@Param("num")String num);
 	
 	/*
 	 * 根据num修改党组织关联单位

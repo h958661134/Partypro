@@ -39,12 +39,10 @@ public class ParBranMemberServiceImpl implements ParBranMemberService{
 	/*
 	 * 批量删除或删除指定党组织班子成员
 	 */
-	public boolean batchDeleteParMem(String[] p) {
-		if(p == null){
-			throw new RuntimeException("删除信息为空");
-		}
-		int res = pBMapper.batchDeleteParMem(p);
-		return res == 1;
+	public boolean batchDeleteParMem(String num) {
+		
+		 
+		return pBMapper.batchDeleteParMem(num);
 	}
 
 	/*

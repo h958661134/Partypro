@@ -83,7 +83,7 @@ public interface PartyBranchMapper {
 	/*
 	 * 批量删除或删除指定党组织班子成员
 	 */
-	public int batchDeleteParMem(@Param("pids")String[] p);
+	public boolean batchDeleteParMem(@Param("num")String num);
 	
 	/*
 	 * 根据num修改党组织班子成员
@@ -98,7 +98,7 @@ public interface PartyBranchMapper {
 	/*
 	 * 批量删除或删除指定党组织奖惩信息
 	 */
-	public int batchDeleteParRepu(@Param("pids")String[] p);
+	public boolean batchDeleteParRepu(@Param("num")String num);
 	
 	/*
 	 * 根据num修改党组织奖惩信息
@@ -113,7 +113,7 @@ public interface PartyBranchMapper {
 	/*
 	 * 批量删除或删除指定党组织关联单位
 	 */
-	public int batchDeleteParCom(@Param("pids")String[] p);
+	public boolean batchDeleteParCom(@Param("num")String num);
 	
 	/*
 	 * 根据num修改党组织关联单位

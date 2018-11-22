@@ -80,10 +80,8 @@
     	<!-- 批量删除或删除指定党组织班子成员 -->
     	<delete id="batchDeleteParMem" parameterType="java.lang.String" >
     		delete from tb_partyBranchMember
-    		where num in 
-    		<foreach collection="pids" open="(" close=")" separator="," item="pid">
-    			#{pid}
-    		</foreach>
+    		where num = #{num}
+    		
     	</delete>
     	
     	<!-- 根据num修改党组织班子成员 -->
@@ -101,10 +99,8 @@
     	<!-- 批量删除或删除指定党组织奖惩信息 -->
     	<delete id="batchDeleteParRepu" parameterType="java.lang.String" >
     		delete from tb_rewardPunishParty 
-    		where num in 
-    		<foreach collection="pids" open="(" close=")" separator="," item="pid">
-    			#{pid}
-    		</foreach>
+    		where num =#{num}
+    		
     	</delete>
     	
     	<!-- 根据num修改党组织奖惩信息 -->
@@ -122,10 +118,8 @@
     	<!-- 批量删除或删除指定党组织关联单位 -->
     	<delete id="batchDeleteParCom" parameterType="java.lang.String" >
     		delete from tb_partyCompany 
-    		where num in 
-    		<foreach collection="pids" open="(" close=")" separator="," item="pid">
-    			#{pid}
-    		</foreach>
+    		where num  = #{num} 
+    	
     	</delete>
     	
     	<!-- 根据num修改党组织关联单位 -->

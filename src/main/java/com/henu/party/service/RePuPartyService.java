@@ -18,7 +18,7 @@ public interface RePuPartyService {
 	/*
 	 * 批量删除或删除指定党组织奖惩信息
 	 */
-	public boolean batchDeleteParRepu(@Param("pids")String[] p);
+	public boolean batchDeleteParRepu(String num);
 	
 	/*
 	 * 根据num修改党组织奖惩信息
